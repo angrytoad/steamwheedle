@@ -1,0 +1,24 @@
+[ignore]
+
+[include]
+
+[libs]
+./flow-typed/
+
+[lints]
+
+[options]
+module.file_ext=.js
+module.file_ext=.spec.js
+module.file_ext=*.spec.js
+module.file_ext=.epics.js
+module.file_ext=.types.js
+module.file_ext=*.js
+module.file_ext=.jsx
+module.file_ext=.json
+module.file_ext=.css
+module.file_ext=.scss
+module.name_mapper.extension='css' -> 'empty/object'
+module.name_mapper.extension='scss' -> 'empty/object'
+
+[strict]

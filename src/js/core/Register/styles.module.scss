@@ -1,0 +1,18 @@
+@import "../../../styles/variables";
+
+.register{
+  max-width:500px;
+  width:100%;
+  margin:auto;
+  text-align: left;
+
+  a{
+    color:$gold;
+  }
+
+  h1{
+    font-size:40px;
+    color:$gold;
+    text-shadow: 1px 2px 3px rgba(0,0,0,0.8);
+  }
+}

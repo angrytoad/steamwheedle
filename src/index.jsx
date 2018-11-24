@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './js/store/store';
 
+
+import history from './js/routing/history';
+
 import './index.css';
+import 'semantic-ui-css/semantic.css';
+import './styles/animate.css';
+
 import App from './js/core/App/container';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router history={history}>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root'),
 );

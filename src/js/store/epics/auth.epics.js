@@ -20,8 +20,6 @@ export default class AuthEpics {
       email,
     })
       .then((response) => {
-        // handle success
-        console.log(response);
         observer.next({
           type: 'USER_LOGIN_REQUEST',
           payload: {
@@ -29,7 +27,7 @@ export default class AuthEpics {
             password,
           },
         });
-        // action.callback();
+        action.callback();
       })
       .catch((error) => {
         // handle error
@@ -42,7 +40,7 @@ export default class AuthEpics {
   })));
 
   userLogin = (action$: any) => action$.ofType('USER_LOGIN_REQUEST').pipe(mergeMap((action: PayloadAction) => Observable.create((observer: any) => {
-    const { username, password, email } = action.payload;
+    const { username, password } = action.payload;
     axios.post(`${process.env.API}/user/login`, {
       username,
       password,
@@ -59,6 +57,7 @@ export default class AuthEpics {
       .catch((error) => {
         // handle error
         console.log(error);
+        action.callback([error]);
       })
       .then(() => {
         // always executed

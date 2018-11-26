@@ -1,7 +1,7 @@
 // @flow
 import type { PayloadAction } from '../types/redux.types';
 
-export const testReducer = (
+export const testReducers = (
   state: string = 'testing',
   action: PayloadAction,
 ) => {
@@ -15,4 +15,4 @@ export const testReducer = (
   }
 };
 
-export default testReducer;
+export default testReducers;

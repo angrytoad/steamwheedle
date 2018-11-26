@@ -55,7 +55,7 @@ class Register extends React.PureComponent<RegisterProps, RegisterState> {
     const { username, password, email } = this.state;
     e.preventDefault();
     this.setState({
-      loading: false,
+      loading: true,
     });
 
     if (username.length > 0 && email.length > 0 && password.length >= 6) {
@@ -72,10 +72,11 @@ class Register extends React.PureComponent<RegisterProps, RegisterState> {
     }
   };
 
-  registerUserCallback = (errors: Array<string>): void => {
-    console.log(errors);
+  registerUserCallback = (errors: Array<string> = []): void => {
     if (errors.length > 0) {
       ToastStore.error('There was a problem trying to register you.');
+    } else {
+      ToastStore.success('Thanks for registering! Enjoy the game :)');
     }
 
     this.setState({
@@ -84,7 +85,6 @@ class Register extends React.PureComponent<RegisterProps, RegisterState> {
   };
 
   render() {
-    const { currentUser, userLoggedIn } = this.props;
     const {
       username, password, loading, email,
     } = this.state;
@@ -133,7 +133,7 @@ class Register extends React.PureComponent<RegisterProps, RegisterState> {
             loading={loading}
             disabled={loading}
           >
-Create Account
+            Create Account
           </Button>
         </Form>
       </div>

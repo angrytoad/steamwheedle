@@ -1,28 +1,32 @@
 // @flow
-import * as React from 'react';
-import { withRouter } from 'react-router-dom';
+import { bindActionCreators, type Dispatch } from 'redux';
 import connect from 'react-redux/es/connect/connect';
-import type { Location } from 'react-router';
 import type { AppState } from '../../store/state';
 import PrivateRoute from './component';
+import type { CurrentUser } from '../../store/types/user.types';
 
-type ReduxStateProps = {
-  currentUser: User,
-}
+type ReduxStateProps = {|
+  userLoggedIn: boolean,
+  currentUser: CurrentUser,
+|};
 
-type ReactRouterProps = {
-  location: Location,
-}
+type ReduxActionProps = {|
 
-export type PrivateRouteProps = ReduxStateProps & ReduxActionProps & ReactRouterProps & {
-  component: React.ElementType,
-  path: string,
-}
+|};
+
+export type PrivateRouteProps = {
+  ...ReduxStateProps,
+  ...ReduxActionProps,
+};
+
+export type PrivateRouteState = {
+
+};
 
 const mapStateToProps = (state: AppState): ReduxStateProps => ({
   currentUser: state.currentUser,
+  userLoggedIn: state.userLoggedIn,
 });
 
-const reduxConnect = connect(mapStateToProps)(PrivateRoute);
-const routerConnect = withRouter(reduxConnect);
-export default routerConnect;
+
+export default connect(mapStateToProps)(PrivateRoute);

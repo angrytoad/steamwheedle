@@ -1,0 +1,8 @@
+@import "../../../styles/variables";
+
+.block{
+  background: rgba($blockBackground, 0.8);
+  border: 1px solid $blockBorder;
+  border-radius:4px;
+  padding:1rem;
+}

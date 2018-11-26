@@ -1,36 +1,38 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
-import { getCookie } from '../../../helpers/cookieHelper';
 import type { PrivateRouteProps } from './container';
+import UserActions from '../../store/actions/user.actions';
 
-const PrivateRoute = (props: PrivateRouteProps) => {
-  const {
-    getCurrentUser, currentUser, location, component,
-  } = props;
-  if (component === null) {
-    return <div />;
-  }
-  if (authToken === null) {
-    return <div />;
-  }
-  if (authToken.loggedIn === false) {
-    const refreshToken = getCookie('refreshToken');
-    if (refreshToken !== null && refreshToken !== undefined && refreshToken !== '') {
-      refreshAuth();
-    } else {
-      localStorage.setItem('callbackUrl', location.pathname);
+class PrivateRoute extends React.PureComponent<PrivateRouteProps, PrivateRouteState> {
+  userActions = new UserActions();
+
+  componentDidMount = () => {
+    this.userActions.getCurrentUser(true);
+  };
+
+  render() {
+    const {
+      currentUser, userLoggedIn, component, path,
+    } = this.props;
+
+    if (component === null) {
+      return <div />;
     }
-    return <div />;
+
+    if (currentUser === null) {
+      return <div />;
+    }
+
+    if ((currentUser === null || currentUser === undefined) && userLoggedIn === true) {
+      this.userActions.getCurrentUser();
+      return <div />;
+    }
+    const element = x => React.createElement(component, { ...x });
+    return (
+      <Route path={path} render={element} />
+    );
   }
-  if ((currentUser === null || currentUser === undefined) && authToken.loggedIn === true) {
-    getCurrentUser(authToken.loggedInUserId);
-    return <div />;
-  }
-  const element = x => React.createElement(component, { ...x });
-  return (
-    <Route path={props.path} render={element} />
-  );
-};
+}
 
 export default PrivateRoute;

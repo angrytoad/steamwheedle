@@ -4,9 +4,14 @@ import Store from '../store';
 export default class AuthActions {
   store: Store = Store;
 
-  loginAction() {
+  loginUser({ username, password }, callback: () => {}) {
     this.store.dispatch({
-      type: 'TEST_ACTION',
+      type: 'USER_LOGIN_REQUEST',
+      payload: {
+        username,
+        password,
+      },
+      callback,
     });
   }
 

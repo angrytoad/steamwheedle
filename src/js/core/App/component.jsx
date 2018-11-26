@@ -9,9 +9,13 @@ import TestActions from '../../store/actions/test.actions';
 import background from "../../../resources/images/steamwheedle_background.jpg";
 import css from "./styles.module.scss";
 
+import PrivateRoute from "../PrivateRoute/container";
+
 import Landing from "../Landing/container";
 import NoRouteMatch from "../NoRouteMatch/component";
 import Register from "../Register/container";
+import Login from "../Login/container";
+import Play from '../Play/container';
 
 class App extends React.PureComponent<AppProps> {
   testActions = new TestActions();
@@ -25,6 +29,8 @@ class App extends React.PureComponent<AppProps> {
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
+        <PrivateRoute exact path="/play" component={Play} />
         <Route component={NoRouteMatch} />
       </Switch>
     )

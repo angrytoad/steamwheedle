@@ -1,0 +1,13 @@
+@import "../../../styles/variables";
+
+.auctionItems{
+  background: $blockBackground;
+  border:1px solid $blockBorder;
+  display:grid;
+  align-items: center;
+
+  svg{
+    max-width:64px;
+    opacity:0.2;
+  }
+}

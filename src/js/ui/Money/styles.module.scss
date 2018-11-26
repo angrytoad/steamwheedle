@@ -1,0 +1,38 @@
+.money{
+  display:grid;
+  grid-gap:1rem;
+  grid-template-columns: auto auto 1fr;
+  justify-items: start;
+  align-items: center;
+  margin:auto;
+
+  &:global(.large){
+    img{
+      width:30px;
+    }
+
+    grid-gap:1rem;
+    font-size:26px;
+    line-height: 26px;
+  }
+
+  &:global(.medium){
+    img{
+      width:24px;
+    }
+
+    grid-gap:10px;
+    font-size:22px;
+    line-height: 22px;
+  }
+
+  &:global(.small){
+    img{
+      width:16px;
+    }
+
+    grid-gap:10px;
+    font-size:14px;
+    line-height: 14px;
+  }
+}

@@ -38,10 +38,10 @@ class Money extends React.PureComponent<MoneyProps, MoneyState> {
   static setCopper = (amount: number = 0): number => amount % 100;
 
   static setSilver = (amount: number = 0): number => math
-    .round(numeral(amount).divide(100).value() % 100);
+    .floor(numeral(amount).divide(100).value() % 100);
 
   static setGold = (amount: number = 0): number => math
-    .round(numeral(amount).divide(10000).value());
+    .floor(numeral(amount).divide(10000).value());
 
   render() {
     const { size = 'small' } = this.props;
@@ -49,11 +49,19 @@ class Money extends React.PureComponent<MoneyProps, MoneyState> {
 
     return (
       <div className={`${css.money} ${size}`}>
+
         <div>
-          { numeral(gold).format('0,0') } <img alt="Gold" src={goldIcon} />
+          {
+            gold > 0
+            && <React.Fragment>{ numeral(gold).format('0,0') } <img alt="Gold" src={goldIcon} /></React.Fragment>
+          }
         </div>
         <div>
-          { silver } <img alt="Silver" src={silverIcon} />
+          {
+            (gold > 0 || silver > 0)
+            && <React.Fragment>{ silver } <img alt="Silver" src={silverIcon} /></React.Fragment>
+          }
+
         </div>
         <div>
           { copper } <img alt="Copper" src={copperIcon} />

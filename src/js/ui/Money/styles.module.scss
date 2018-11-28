@@ -1,8 +1,8 @@
 .money{
   display:grid;
   grid-gap:1rem;
-  grid-template-columns: auto auto 1fr;
-  justify-items: start;
+  grid-template-columns: 1fr auto auto;
+  justify-items: end;
   align-items: center;
   margin:auto;
 

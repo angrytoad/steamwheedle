@@ -1,14 +1,15 @@
 // @flow
 import React from 'react';
+import { Button, Modal } from 'semantic-ui-react';
 import type { AuctionProps, AuctionState } from './container';
 import AuctionActions from '../../store/actions/auction.actions';
 import css from './styles.module.scss';
 
 import AuctionCategories from '../../ui/AuctionCategories/component';
 import AuctionItems from '../../ui/AuctionItems/component';
+import BuyItemModal from '../BuyItemModal/container';
 
 class Auction extends React.PureComponent<AuctionProps, AuctionState> {
-
   auctionActions = new AuctionActions();
 
   componentDidMount = () => {
@@ -16,7 +17,9 @@ class Auction extends React.PureComponent<AuctionProps, AuctionState> {
   };
 
   render() {
-    const { auctionCategories, selectedAuctionCategories } = this.props;
+    const {
+      auctionCategories, selectedAuctionCategories, auctionItems, currentUser,
+    } = this.props;
 
     return (
       <div className={css.auction}>
@@ -30,7 +33,12 @@ class Auction extends React.PureComponent<AuctionProps, AuctionState> {
           auctionCategories={auctionCategories}
           selectedAuctionCategories={selectedAuctionCategories}
         />
-        <AuctionItems />
+        <AuctionItems
+          selectedAuctionCategories={selectedAuctionCategories}
+          auctionItems={auctionItems}
+          currentUser={currentUser}
+        />
+        <BuyItemModal />
       </div>
     );
   }

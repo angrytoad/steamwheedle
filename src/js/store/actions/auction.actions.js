@@ -23,4 +23,12 @@ export default class AuctionActions {
       payload: id,
     });
   }
+
+  getAuctionItems(selectedAuctionCategories: string[] = [], event = null) {
+    this.store.dispatch({
+      type: 'GET_AUCTION_ITEMS_REQUEST',
+      payload: selectedAuctionCategories,
+      callback: event,
+    });
+  }
 }

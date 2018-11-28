@@ -1,0 +1,10 @@
+@import "../../../styles/variables";
+.itemImageName{
+  display:grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  grid-gap:1rem;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  font-size:18px;
+}

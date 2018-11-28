@@ -6,3 +6,23 @@ export type AuctionCategory = {
   created_at: string,
   updated_at: string,
 };
+
+export type AuctionItem = {
+  id: string,
+  name: string,
+  description: string,
+  image: string,
+  current_price: number,
+  rarity: {
+    rarity_id: string,
+    name: string,
+  },
+  risk: {
+    risk_id: string,
+    name: string,
+  },
+  category: {
+    category_id: string,
+    name: string,
+  }
+}

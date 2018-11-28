@@ -1,0 +1,20 @@
+@import "../../../styles/variables";
+
+.auctionItem{
+  min-height: 75px;
+  border-bottom:1px solid $blockBorder;
+  align-items: center;
+  text-align: left;
+
+  td{
+    padding:5px 1rem;
+  }
+
+  .name{
+    max-width: 300px;
+  }
+
+  .risk{
+    text-transform: uppercase;
+  }
+}

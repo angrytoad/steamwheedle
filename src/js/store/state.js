@@ -1,7 +1,7 @@
 // @flow
 
 import type { CurrentUser } from './types/user.types';
-import type { AuctionCategory } from './types/auction.types';
+import type {AuctionCategory, AuctionItem} from './types/auction.types';
 
 export type AppState = {
   +test: string,
@@ -10,4 +10,5 @@ export type AppState = {
   +view: string,
   +auctionCategories: AuctionCategory[],
   +selectedAuctionCategories: string[],
+  +auctionItems: AuctionItem[],
 }

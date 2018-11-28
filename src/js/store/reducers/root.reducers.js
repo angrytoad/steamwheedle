@@ -6,7 +6,7 @@ import {
 import { currentUserReducer } from './user.reducers';
 import { userLoggedInReducer } from './auth.reducers';
 import { viewReducer } from './application.reducers';
-import { auctionCategoriesReducer, selectedAuctionCategoriesReducer } from './auction.reducers';
+import { auctionCategoriesReducer, auctionItemsReducer, selectedAuctionCategoriesReducer } from './auction.reducers';
 
 export default combineReducers({
   test: testReducers,
@@ -15,4 +15,5 @@ export default combineReducers({
   view: viewReducer,
   auctionCategories: auctionCategoriesReducer,
   selectedAuctionCategories: selectedAuctionCategoriesReducer,
+  auctionItems: auctionItemsReducer,
 });

@@ -5,9 +5,37 @@
   border:1px solid $blockBorder;
   display:grid;
   align-items: center;
+  position: relative;
 
   svg{
     max-width:64px;
     opacity:0.2;
+  }
+
+  .scrollContainer{
+    overflow: auto;
+    position: absolute;
+    align-content: start;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .auctionItemsHeader{
+    font-size:20px;
+    font-family: $headings-font-family;
+    border-bottom: 1px solid $blockBorder;
+
+    th{
+      font-weight: 300;
+      padding:1rem;
+      text-align: left;
+
+      &:nth-child(3){
+        text-align: right;
+      }
+    }
+
   }
 }

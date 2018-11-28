@@ -5,7 +5,7 @@ import SVGInline from 'react-svg-inline';
 import type { LandingProps, LandingState } from './container';
 import css from './styles.module.scss';
 
-import Gold from '../../../resources/images/ui/Gold.png';
+import Gold from '../../../resources/images/ui/Gold-small.png';
 import heart from '../../../resources/icons/heart.svg';
 import huzzah from '../../../resources/images/youtubers/huzzah.png';
 import history from '../../routing/history';

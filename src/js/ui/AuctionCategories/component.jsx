@@ -59,8 +59,6 @@ class AuctionCategories extends React.PureComponent<
   render() {
     const { selectedAuctionCategories } = this.props;
 
-    console.log(selectedAuctionCategories);
-
     return (
       <div className={css.auctionCategories}>
         {

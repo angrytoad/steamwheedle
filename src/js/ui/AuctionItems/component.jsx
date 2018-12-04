@@ -64,7 +64,7 @@ class AuctionItems extends React.PureComponent<AuctionItemsProps, AuctionItemsSt
     const { selectedAuctionCategories } = this.props;
     document.addEventListener('finishLoading', this.getAuctionItemsCallback);
     this.auctionActions
-      .getAuctionItems(selectedAuctionCategories, new CustomEvent('finishLoading'));
+      .getAuctionItems(selectedAuctionCategories, new CustomEvent('finishLoading'), true);
   };
 
   componentWillUnmount = () => {
@@ -75,7 +75,7 @@ class AuctionItems extends React.PureComponent<AuctionItemsProps, AuctionItemsSt
     const { loading } = this.state;
     const { auctionItems, currentUser } = this.props;
     return (
-      <div className={css.auctionItems}>
+      <div className={`${css.auctionItems} ${loading ? css.loading : css.loaded}`}>
         {
           loading
             ? <SVGInline className="animated fadeIn" svg={bars} />
@@ -85,7 +85,7 @@ class AuctionItems extends React.PureComponent<AuctionItemsProps, AuctionItemsSt
                   auctionItems.length === 0
                     ? <p>No Items here m&apos;lord.</p>
                     : (
-                      <table className={`animated fadeIn ${css.scrollContainer}`}>
+                      <table className='animated fadeIn'>
                         <thead className={css.auctionItemsHeader}>
                           <tr>
                             <th>Item</th>
@@ -95,7 +95,7 @@ class AuctionItems extends React.PureComponent<AuctionItemsProps, AuctionItemsSt
                             <th>Actions</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody className={css.auctionItemsBody}>
                           {
                             auctionItems
                               .map(auctionItem => (

@@ -1,0 +1,28 @@
+@import "../../../styles/variables";
+
+.auctionPurchaseGroup{
+  transition: background 0.2s;
+
+  &:hover{
+    background:$mediumBackground;
+    cursor:pointer;
+    transition: background 0.2s;
+  }
+
+  .purchaseGroupGlance{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+
+    .purchaseTotals{
+      display:grid;
+      grid-template-rows: auto 1fr;
+
+      .count{
+        font-size:30px;
+      }
+    }
+
+
+  }
+}

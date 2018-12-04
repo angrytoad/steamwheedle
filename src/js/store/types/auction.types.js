@@ -26,3 +26,16 @@ export type AuctionItem = {
     name: string,
   }
 }
+
+export type AuctionPurchase = {
+  buy_price: number,
+  created_at: string,
+  id: string,
+  item_id: string,
+  quantity: number,
+  current: number,
+  updated_at: string,
+  user_id: string,
+}
+
+export type AuctionPurchases = { [key: string]: AuctionPurchase[] };

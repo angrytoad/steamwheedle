@@ -3,12 +3,10 @@ import * as React from 'react';
 import type { MainViewProps, MainViewState } from './container';
 import ApplicationActions from '../../store/actions/application.actions';
 
-import Auction from '../Auction/container';
+import Auction from '../../views/Auction/container';
+import PurchaseGroupView from '../../views/PurchaseGroupView/container';
 
 class MainView extends React.PureComponent<MainViewProps, MainViewState> {
-  state = {
-
-  };
 
   applicationActions = new ApplicationActions();
 
@@ -16,6 +14,8 @@ class MainView extends React.PureComponent<MainViewProps, MainViewState> {
     switch (view) {
       case 'auction':
         return <Auction />;
+      case 'purchaseGroup':
+        return <PurchaseGroupView />;
       default:
         return <h1>No View Found for {view}</h1>;
     }

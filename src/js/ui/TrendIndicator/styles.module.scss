@@ -1,0 +1,27 @@
+@import "../../../styles/variables";
+
+.trendIndicator{
+  display:grid;
+  justify-items: center;
+
+  :global(.icon){
+    width:24px;
+    height:24px;
+  }
+
+  .up{
+    color: $gold;
+
+    svg{
+      fill: $gold;
+    }
+  }
+
+  .down{
+    color: $negative;
+
+    svg{
+      fill: $negative;
+    }
+  }
+}

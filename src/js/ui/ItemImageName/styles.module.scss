@@ -7,4 +7,20 @@
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
   font-size:18px;
+
+  > div{
+    display:grid;
+    align-items: center;
+    text-align: left;
+
+    span{
+      line-height: 18px;
+
+      &:last-child{
+        text-transform: uppercase;
+        font-size:12px;
+        line-height: 12px;
+      }
+    }
+  }
 }

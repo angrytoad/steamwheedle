@@ -20,6 +20,7 @@ export default class {
 }
 
 axios.interceptors.response.use(null, (error) => {
+  console.log(error);
   if (error.response.status === 401) {
     Cookies.remove('auth_token');
     history.push('/login');

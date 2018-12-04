@@ -44,25 +44,28 @@ class Money extends React.PureComponent<MoneyProps, MoneyState> {
     .floor(numeral(amount).divide(10000).value());
 
   render() {
-    const { size = 'small' } = this.props;
+    const { size = 'small', alignment = 'center' } = this.props;
     const { copper, silver, gold } = this.state;
 
     return (
-      <div className={`${css.money} ${size}`}>
-
-        <div>
-          {
+      <div className={`${css.money} ${size} ${alignment}`}>
+        {
             gold > 0
-            && <React.Fragment>{ numeral(gold).format('0,0') } <img alt="Gold" src={goldIcon} /></React.Fragment>
-          }
-        </div>
-        <div>
-          {
-            (gold > 0 || silver > 0)
-            && <React.Fragment>{ silver } <img alt="Silver" src={silverIcon} /></React.Fragment>
+            && (
+            <div>
+              { numeral(gold).format('0,0') } <img alt="Gold" src={goldIcon} />
+            </div>
+            )
           }
 
-        </div>
+        {
+          (gold > 0 || silver > 0)
+          && (
+          <div>
+            {silver} <img alt="Silver" src={silverIcon} />
+          </div>
+          )
+        }
         <div>
           { copper } <img alt="Copper" src={copperIcon} />
         </div>

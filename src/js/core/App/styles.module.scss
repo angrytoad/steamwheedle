@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .App{
-  position: relative;
+  position: absolute;
   color:$textLight;
   text-align: center;
   min-height: 100vh;
@@ -9,7 +9,12 @@
   align-items: center;
   background-size:cover;
   background-repeat: no-repeat;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
   z-index: 0;
+  overflow-y:auto;
 
   > div{
     padding: 1rem;

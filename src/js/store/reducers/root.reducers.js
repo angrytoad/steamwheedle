@@ -3,10 +3,15 @@ import { combineReducers } from 'redux';
 import {
   testReducers,
 } from './test.reducers';
-import { currentUserReducer } from './user.reducers';
+import {activePurchaseGroupReducer, currentUserReducer, userAuctionPurchasesReducer} from './user.reducers';
 import { userLoggedInReducer } from './auth.reducers';
 import { viewReducer } from './application.reducers';
-import { auctionCategoriesReducer, auctionItemsReducer, selectedAuctionCategoriesReducer } from './auction.reducers';
+import {
+  allAuctionItemsReducer,
+  auctionCategoriesReducer,
+  auctionItemsReducer,
+  selectedAuctionCategoriesReducer
+} from './auction.reducers';
 
 export default combineReducers({
   test: testReducers,
@@ -16,4 +21,7 @@ export default combineReducers({
   auctionCategories: auctionCategoriesReducer,
   selectedAuctionCategories: selectedAuctionCategoriesReducer,
   auctionItems: auctionItemsReducer,
+  userAuctionPurchases: userAuctionPurchasesReducer,
+  allAuctionItems: allAuctionItemsReducer,
+  activePurchaseGroup: activePurchaseGroupReducer,
 });

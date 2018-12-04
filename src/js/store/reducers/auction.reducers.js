@@ -60,3 +60,20 @@ export const auctionItemsReducer = (
     }
   }
 };
+
+export const allAuctionItemsReducer = (
+  state: AuctionItem[] = [],
+  action: PayloadAction,
+) => {
+  switch (action.type) {
+    case 'SET_ALL_AUCTION_ITEMS':
+      const items: AuctionItem[] = action.payload;
+      if (items === undefined || items === null) {
+        return state;
+      }
+      return items;
+    default: {
+      return state;
+    }
+  }
+};

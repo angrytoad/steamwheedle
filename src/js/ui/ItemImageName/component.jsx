@@ -19,10 +19,14 @@ class ItemImageName extends React.PureComponent<ItemImageNameProps, ItemImageNam
 
   render() {
     const { item } = this.props;
+
     return (
       <div className={css.itemImageName}>
         <img className="itemImage" src={item.image} />
-        <span style={{ color: getRarityColor(item.rarity.name) }}>{ item.name }</span>
+        <div>
+          <span style={{ color: getRarityColor(item.rarity.name) }}>{ item.name }</span>
+          <span className="text-muted"><small>{ item.category.name }</small></span>
+        </div>
       </div>
     );
   }

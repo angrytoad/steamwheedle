@@ -7,7 +7,7 @@ import css from './styles.module.scss';
 
 import AuctionCategories from '../../ui/AuctionCategories/component';
 import AuctionItems from '../../ui/AuctionItems/component';
-import BuyItemModal from '../BuyItemModal/container';
+import BuyItemModal from '../../widgets/BuyItemModal/container';
 
 class Auction extends React.PureComponent<AuctionProps, AuctionState> {
   auctionActions = new AuctionActions();
@@ -22,7 +22,7 @@ class Auction extends React.PureComponent<AuctionProps, AuctionState> {
     } = this.props;
 
     return (
-      <div className={css.auction}>
+      <div className={`${css.auction} animated fadeIn`}>
         <div className={css.topper}>
           <h1>The Auction</h1>
           <div>

@@ -1,0 +1,38 @@
+@import "../../../styles/variables";
+
+.purchaseGroupStats{
+  display:flex;
+
+  .statBlock{
+    flex:1;
+    padding:1rem;
+    border:1px solid $blockBorder;
+    margin:0 0.5rem;
+    text-align: left;
+
+    &:first-child{
+      margin-left:0;
+    }
+
+    &:last-child{
+      margin-right:0;
+    }
+
+    h4{
+      margin:0;
+      margin-bottom:5px;
+    }
+
+    .statBlockFigure{
+      font-size:30px;
+      color:$gold;
+      line-height: 30px;
+    }
+
+    .movement{
+      color:$gold;
+      font-weight: bold;
+      font-size:18px;
+    }
+  }
+}

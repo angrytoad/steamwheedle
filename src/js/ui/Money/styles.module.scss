@@ -1,19 +1,37 @@
 .money{
-  display:grid;
+  display:flex;
   grid-gap:1rem;
   grid-template-columns: 1fr auto auto;
   justify-items: end;
   align-items: center;
   margin:auto;
 
+  > div{
+    flex: 0 1 auto;
+  }
+
+  &:global(.center){
+    justify-content: center;
+  }
+
+  &:global(.left){
+    justify-content: flex-start;
+  }
+
+  &:global(.right){
+    justify-content: flex-end;
+  }
+
   &:global(.large){
     img{
       width:30px;
     }
 
-    grid-gap:1rem;
-    font-size:26px;
-    line-height: 26px;
+    > div{
+      margin:0 0.5rem;
+      font-size:26px;
+      line-height: 26px;
+    }
   }
 
   &:global(.medium){
@@ -21,9 +39,11 @@
       width:24px;
     }
 
-    grid-gap:10px;
-    font-size:22px;
-    line-height: 22px;
+    > div{
+      margin:0 5px;
+      font-size:22px;
+      line-height: 22px;
+    }
   }
 
   &:global(.small){
@@ -31,8 +51,20 @@
       width:16px;
     }
 
-    grid-gap:10px;
-    font-size:14px;
-    line-height: 14px;
+    > div{
+      margin:0 5px;
+      font-size:14px;
+      line-height: 14px;
+    }
+  }
+
+  > div{
+    &:first-child{
+      margin-left:0;
+    }
+
+    &:last-child{
+      margin-right:0;
+    }
   }
 }

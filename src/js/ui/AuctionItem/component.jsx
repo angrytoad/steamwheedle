@@ -14,9 +14,6 @@ type AuctionItemProps = {
 };
 
 class AuctionItem extends React.PureComponent<AuctionItemProps> {
-  componentDidMount = () => {
-
-  };
 
   render() {
     const { item, currentUser } = this.props;
@@ -30,7 +27,7 @@ class AuctionItem extends React.PureComponent<AuctionItemProps> {
           <span style={{ color: getRiskColor(item.risk.name) }}>{ item.risk.name }</span>
         </td>
         <td>
-          <Money amount={item.current_price} size="small" />
+          <Money amount={item.current_price} size="small" alignment='right' />
         </td>
         <td />
         <td>

@@ -1,0 +1,14 @@
+.singlePurchaseRender{
+  .action{
+    width:40px;
+
+    &:hover{
+      cursor:pointer;
+      opacity:0.7;
+    }
+  }
+
+  td:nth-child(2){
+    font-size:24px;
+  }
+}

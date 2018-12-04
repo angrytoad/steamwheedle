@@ -1,7 +1,7 @@
 // @flow
 
 import type { CurrentUser } from './types/user.types';
-import type {AuctionCategory, AuctionItem} from './types/auction.types';
+import type {AuctionCategory, AuctionItem, AuctionPurchase, AuctionPurchases} from './types/auction.types';
 
 export type AppState = {
   +test: string,
@@ -11,4 +11,7 @@ export type AppState = {
   +auctionCategories: AuctionCategory[],
   +selectedAuctionCategories: string[],
   +auctionItems: AuctionItem[],
+  +userAuctionPurchases: AuctionPurchases,
+  +allAuctionItems: AuctionItem[],
+  +activePurchaseGroup: AuctionPurchase[],
 }

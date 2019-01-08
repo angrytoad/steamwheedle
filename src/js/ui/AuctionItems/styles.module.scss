@@ -5,7 +5,6 @@
   border:1px solid $blockBorder;
   display:grid;
   position: relative;
-  overflow-y: auto;
 
   &.loading{
     align-items: center;
@@ -21,12 +20,6 @@
   }
 
   table{
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    overflow-y: auto;
     width:100%;
 
     .auctionItemsHeader{
@@ -44,10 +37,26 @@
         }
       }
 
+      @media screen and (max-width:$small){
+        tr{
+          th:nth-child(4),th:nth-child(5){
+            display:none;
+          }
+        }
+      }
+
     }
 
     .auctionItemsBody{
 
+
+      @media screen and (max-width:$small){
+        tr{
+          td:nth-child(4),td:nth-child(5){
+            display:none;
+          }
+        }
+      }
     }
   }
 

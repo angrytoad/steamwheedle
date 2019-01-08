@@ -8,4 +8,6 @@ export type CurrentUser = {
   updated_at: string,
   loginCount: number,
   balance: number,
+  level: number,
+  current_experience: number,
 };

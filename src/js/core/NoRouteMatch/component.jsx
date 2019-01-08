@@ -44,6 +44,7 @@ class NoRouteMatch extends React.PureComponent {
               <Button
                 className="my-4"
                 color="yellow"
+                basic
                 size="big"
                 onClick={() => history.push('/login')}
                 onKeyDown={() => history.push('/login')}
@@ -55,22 +56,12 @@ class NoRouteMatch extends React.PureComponent {
               <Button
                 className="my-4"
                 color="yellow"
+                basic
                 size="big"
                 onClick={() => history.push('/register')}
                 onKeyDown={() => history.push('/register')}
               >
                 Register
-              </Button>
-            </li>
-            <li>
-              <Button
-                className="my-4"
-                color="yellow"
-                size="big"
-                onClick={() => history.push('/')}
-                onKeyDown={() => history.push('/')}
-              >
-                Landing
               </Button>
             </li>
           </ul>

@@ -1,3 +1,5 @@
+@import "../../../styles/variables";
+
 .money{
   display:flex;
   grid-gap:1rem;
@@ -8,6 +10,11 @@
 
   > div{
     flex: 0 1 auto;
+    text-align: center;
+  }
+
+  img{
+    vertical-align: top;
   }
 
   &:global(.center){
@@ -40,7 +47,7 @@
     }
 
     > div{
-      margin:0 5px;
+      margin:0 0.5rem;
       font-size:22px;
       line-height: 22px;
     }
@@ -65,6 +72,16 @@
 
     &:last-child{
       margin-right:0;
+    }
+  }
+
+  @media screen and (max-width:$verySmall){
+    > div{
+      text-align: center;
+    }
+
+    img{
+      margin: auto;
     }
   }
 }

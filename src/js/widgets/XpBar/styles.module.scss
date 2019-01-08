@@ -1,0 +1,65 @@
+@import "../../../styles/variables";
+
+.xpBar{
+  position: fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:$xpbarHeight;
+  background:rgba(0,0,0,0.5);
+  border-top:2px ridge rgba(white,0.3);
+  border-bottom:2px ridge rgba(white,0.3);
+
+  .segments{
+    position: relative;
+    z-index: 3;
+    display:grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: 1fr;
+
+    .segmentItem{
+      border-right:2px ridge rgba($gold,0.7);
+      height: calc(#{$xpbarHeight} - 4px);
+    }
+  }
+
+  .summary{
+    z-index: 4;
+    margin: auto;
+    height: $xpbarHeight;
+    bottom: 0;
+    left: 0;
+    font-size: 16px;
+    line-height: calc(#{$xpbarHeight} + 4px);
+    position: absolute;
+    right: 0;
+    text-align: center;
+  }
+
+  .currentxp{
+    height: calc(#{$xpbarHeight} - 4px);
+    background: $xpbarColor;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    z-index: 1;
+    transition: width 3s ease-in-out;
+
+    &.maxlevel{
+      background: $gold;
+    }
+  }
+
+  .currentxpfade{
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.01) 1%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.01) 1%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.01) 1%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 );
+    height: calc(#{$xpbarHeight} - 4px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right:0;
+    z-index: 2;
+  }
+}

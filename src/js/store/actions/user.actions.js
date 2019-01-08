@@ -43,4 +43,10 @@ export default class UserActions {
       callback,
     });
   }
+
+  getAvailableLevels() {
+    this.store.dispatch({
+      type: 'GET_AVAILABLE_LEVELS_REQUEST',
+    });
+  }
 }

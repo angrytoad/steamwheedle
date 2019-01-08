@@ -5,7 +5,8 @@ import type { AuctionItem } from '../../store/types/auction.types';
 import { getRarityColor } from '../../helpers/colorHelper';
 
 type ItemImageNameProps = {
-  item: AuctionItem
+  item: AuctionItem,
+  description?: boolean,
 }
 
 class ItemImageName extends React.PureComponent<ItemImageNameProps, ItemImageNameState> {
@@ -18,14 +19,22 @@ class ItemImageName extends React.PureComponent<ItemImageNameProps, ItemImageNam
   };
 
   render() {
-    const { item } = this.props;
+    const { item, description = false } = this.props;
 
     return (
       <div className={css.itemImageName}>
         <img className="itemImage" src={item.image} />
         <div>
           <span style={{ color: getRarityColor(item.rarity.name) }}>{ item.name }</span>
-          <span className="text-muted"><small>{ item.category.name }</small></span>
+          <span className={`${css.category} text-muted`}><small>{ item.category.name }</small></span>
+          {
+            description
+            && (
+            <span className={css.description}>
+              { item.description }
+            </span>
+            )
+          }
         </div>
       </div>
     );

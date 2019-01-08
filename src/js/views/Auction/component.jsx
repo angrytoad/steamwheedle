@@ -24,10 +24,8 @@ class Auction extends React.PureComponent<AuctionProps, AuctionState> {
     return (
       <div className={`${css.auction} animated fadeIn`}>
         <div className={css.topper}>
-          <h1>The Auction</h1>
-          <div>
-            <p>Search</p>
-          </div>
+          <h1 className="title">The Auction House</h1>
+          <h4 className="subtitle">The tastiest items at the tastiest prices!</h4>
         </div>
         <AuctionCategories
           auctionCategories={auctionCategories}
@@ -38,7 +36,6 @@ class Auction extends React.PureComponent<AuctionProps, AuctionState> {
           auctionItems={auctionItems}
           currentUser={currentUser}
         />
-        <BuyItemModal />
       </div>
     );
   }

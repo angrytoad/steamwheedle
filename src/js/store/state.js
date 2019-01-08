@@ -14,4 +14,5 @@ export type AppState = {
   +userAuctionPurchases: AuctionPurchases,
   +allAuctionItems: AuctionItem[],
   +activePurchaseGroup: AuctionPurchase[],
+  +availableLevels: number[],
 }

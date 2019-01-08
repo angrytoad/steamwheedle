@@ -1,7 +1,8 @@
 // @flow
 import type { PayloadAction } from '../types/redux.types';
 import type { CurrentUser } from '../types/user.types';
-import type {AuctionPurchase, AuctionPurchases} from "../types/auction.types";
+import type { AuctionPurchase, AuctionPurchases } from '../types/auction.types';
+import { playSound } from '../../helpers/soundHelper';
 
 export const currentUserReducer = (
   state: CurrentUser | null = null,
@@ -16,6 +17,7 @@ export const currentUserReducer = (
       return action.payload;
     }
     case 'UPDATE_CURRENT_USER_BALANCE': {
+      playSound('user/balance/balanceChange');
       return {
         ...state,
         balance: action.payload,
@@ -58,6 +60,27 @@ export const activePurchaseGroupReducer = (
       return purchase;
     }
     case 'CLEAR_ACTIVE_PURCHASE_GROUP': {
+      return null;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+export const availableLevelsReducer = (
+  state: number[] | null = null,
+  action: PayloadAction,
+) => {
+  switch (action.type) {
+    case 'GET_AVAILABLE_LEVELS_REQUEST_SUCCESS': {
+      const levels: number[] = action.payload;
+      if (levels === undefined || levels === null) {
+        return state;
+      }
+      return levels;
+    }
+    case 'CLEAR_AVAILABLE_LEVELS': {
       return null;
     }
     default: {

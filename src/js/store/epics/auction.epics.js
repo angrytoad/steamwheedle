@@ -56,7 +56,9 @@ export default class AuctionEpics {
               payload: data,
             });
           }
-          document.dispatchEvent(action.callback);
+          if (action.callback !== null) {
+            document.dispatchEvent(action.callback);
+          }
         })
         .catch((error) => {
           // handle error
@@ -64,7 +66,9 @@ export default class AuctionEpics {
           observer.next({
             type: 'GET_AUCTION_ITEMS_REQUEST_FAIL',
           });
-          document.dispatchEvent(action.callback);
+          if (action.callback !== null) {
+            document.dispatchEvent(action.callback);
+          }
         })
         .then(() => {
           // Always Run This
@@ -106,11 +110,51 @@ export default class AuctionEpics {
     }
   })));
 
+  sellPurchaseRequest = (action$: any) => action$.ofType('SELL_PURCHASE_REQUEST').pipe(mergeMap((action: GetAuctionItemsPayloadAction) => Observable.create((observer: any) => {
+    if (Cookies.get('auth_token') !== undefined || action.payload.redirect) {
+      axios.post(`${process.env.API}/auction/sell`,
+        {
+          item_purchase_id: action.payload.purchase.id,
+          quantity: action.payload.quantity,
+        },
+        apiServiceClient.options())
+        .then(({ data }: AuctionItem[]) => {
+          console.log(action.payload.purchase);
+
+          observer.next({
+            type: 'GET_USER_AUCTION_PURCHASES_REQUEST',
+          });
+          observer.next({
+            type: 'UPDATE_CURRENT_USER_BALANCE',
+            payload: data.balance,
+          });
+          observer.next({
+            type: 'GET_CURRENT_USER_REQUEST',
+          });
+          action.callback([]);
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error);
+          observer.next({
+            type: 'GET_AUCTION_ITEMS_REQUEST_FAIL',
+          });
+          action.callback([
+            'Can\'t sell auction purchase',
+          ]);
+        })
+        .then(() => {
+          // Always Run This
+        });
+    }
+  })));
+
   getEpics() {
     return [
       this.getAuctionCategories,
       this.getAuctionItems,
       this.buyAuctionItem,
+      this.sellPurchaseRequest,
     ];
   }
 }

@@ -13,6 +13,7 @@ export type AuctionItem = {
   description: string,
   image: string,
   current_price: number,
+  base_price: number,
   rarity: {
     rarity_id: string,
     name: string,

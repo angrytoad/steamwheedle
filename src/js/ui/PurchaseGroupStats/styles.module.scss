@@ -35,4 +35,13 @@
       font-size:18px;
     }
   }
+
+  @media screen and (max-width:$medium){
+    flex-wrap: wrap;
+
+    .statBlock{
+      min-width:300px;
+      margin:0!important;
+    }
+  }
 }

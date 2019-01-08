@@ -1,8 +1,89 @@
+@import "../../../styles/variables";
+
 .auctionCategories{
   grid-area: auctionCategories;
 
-  h3{
-    margin-top:2rem;
-    text-align: left;
+  .categoryBlock{
+    text-align: center;
+    margin-top:3rem;
+
+    &:first-child{
+      margin-top:0;
+    }
+
+    img{
+      display:block;
+      margin:auto;
+    }
+
+    .categoryList{
+      margin-top:5px;
+    }
+
+    .mobileCategoryList{
+      display:none;
+    }
+  }
+
+  @media screen and (max-width:$medium){
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:1rem;
+
+    .categoryBlock{
+      margin-top:0;
+      display:grid;
+      grid-template-rows: auto 1fr;
+      align-items: start;
+
+      .categoryList{
+        display:none;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        > div{
+          flex:0 1;
+          margin:3px;
+          padding:5px 1rem;
+        }
+      }
+
+      .mobileCategoryList{
+        display:grid;
+        position: fixed;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        z-index: 3;
+        padding:2rem;
+        padding-bottom: $playMenuMobileHeight;
+        padding-top: $balanceMenuMobileHeight;
+        overflow-y: auto;
+        background:rgba($darkBackground,0.8);
+
+        > div{
+          flex:1;
+          margin:auto;
+          width:100%;
+          max-width:400px;
+          text-align: center;
+          padding:8px;
+          margin:10px auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width:$verySmall){
+    .categoryBlock{
+      .mobileCategoryList{
+        top: $balanceMenuMobileHeight;
+        bottom: $playMenuMobileHeight;
+      }
+    }
   }
 }

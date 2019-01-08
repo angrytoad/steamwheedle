@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 import type { AuctionPurchaseGroupProps, AuctionPurchaseGroupState } from './container';
 import css from './styles.module.scss';
 import ItemImageName from '../ItemImageName/component';
@@ -17,27 +18,21 @@ class AuctionPurchaseGroup extends React.PureComponent<AuctionPurchaseGroupProps
     return _.find(allAuctionItems, item => item.id === purchase[0].item_id);
   }
 
-  handleSetPurchaseView = () => {
-    const { purchase } = this.props;
-    this.applicationActions.setView('purchaseGroup');
-    this.userActions.setActivePurchaseGroup(purchase);
-  };
-
   render() {
     const auctionPurchaseItem = this.AuctionPurchaseItem;
     const { purchase } = this.props;
 
     return (
-      <div className={css.auctionPurchaseGroup} onClick={this.handleSetPurchaseView}>
-        <div className={css.purchaseGroupGlance}>
-          <ItemImageName item={auctionPurchaseItem} />
-          <div className={css.purchaseTotals}>
-            <span className={css.count}>{ purchase.length }</span>
-            <span className="text-muted text-uppercase">Purchases</span>
+      <div className={css.auctionPurchaseGroup}>
+        <Link to={`/inventory/${purchase[0].item_id}`}>
+          <div className={css.purchaseGroupGlance}>
+            <ItemImageName item={auctionPurchaseItem} />
+            <div className={css.purchaseTotals}>
+              <span className={css.count}>{ purchase.length }</span>
+              <span className="text-muted text-uppercase">Purchases</span>
+            </div>
           </div>
-
-        </div>
-
+        </Link>
       </div>
     );
   }

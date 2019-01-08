@@ -9,6 +9,7 @@ class PrivateRoute extends React.PureComponent<PrivateRouteProps, PrivateRouteSt
 
   componentDidMount = () => {
     this.userActions.getCurrentUser(true);
+    this.userActions.getAvailableLevels();
   };
 
   render() {

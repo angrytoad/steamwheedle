@@ -62,35 +62,21 @@ export default class UserEpics {
     }
   })));
 
-  sellPurchaseRequest = (action$: any) => action$.ofType('SELL_PURCHASE_REQUEST').pipe(mergeMap((action: GetAuctionItemsPayloadAction) => Observable.create((observer: any) => {
+  getAvailableLevels = (action$: any) => action$.ofType('GET_AVAILABLE_LEVELS_REQUEST').pipe(mergeMap((action: PayloadAction) => Observable.create((observer: any) => {
     if (Cookies.get('auth_token') !== undefined || action.payload.redirect) {
-      axios.post(`${process.env.API}/auction/sell`,
-        {
-          item_purchase_id: action.payload.purchase.id,
-          quantity: action.payload.quantity,
-        },
-        apiServiceClient.options())
-        .then(({ data }: AuctionItem[]) => {
-          console.log(action.payload.purchase);
-
+      axios.get(`${process.env.API}/levels`, apiServiceClient.options())
+        .then(({ data }: number[]) => {
           observer.next({
-            type: 'GET_USER_AUCTION_PURCHASES_REQUEST',
+            type: 'GET_AVAILABLE_LEVELS_REQUEST_SUCCESS',
+            payload: data,
           });
-          observer.next({
-            type: 'UPDATE_CURRENT_USER_BALANCE',
-            payload: data.balance,
-          });
-          action.callback([]);
         })
         .catch((error) => {
           // handle error
           console.log(error);
           observer.next({
-            type: 'GET_AUCTION_ITEMS_REQUEST_FAIL',
+            type: 'GET_AVAILABLE_LEVELS_REQUEST_FAIL',
           });
-          action.callback([
-            'Can\'t sell auction purchase',
-          ]);
         })
         .then(() => {
           // Always Run This
@@ -102,7 +88,7 @@ export default class UserEpics {
     return [
       this.getCurrentUser,
       this.getUserAuctionPurchases,
-      this.sellPurchaseRequest,
+      this.getAvailableLevels,
     ];
   }
 }

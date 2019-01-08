@@ -16,13 +16,12 @@ import NoRouteMatch from "../NoRouteMatch/component";
 import Register from "../Register/container";
 import Login from "../Login/container";
 import Play from '../Play/container';
+import Auction from '../Auction/container';
+import Inventory from '../Inventory/container';
+import InventoryItem from '../InventoryItem/container';
+import BuyItemModal from "../../widgets/BuyItemModal/container";
 
 class App extends React.PureComponent<AppProps> {
-  testActions = new TestActions();
-
-  componentDidMount = () => {
-    //this.testActions.testAction();
-  };
 
   renderPathComponent = () => {
     return (
@@ -31,6 +30,9 @@ class App extends React.PureComponent<AppProps> {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <PrivateRoute exact path="/play" component={Play} />
+        <PrivateRoute exact path="/auction" component={Auction} />
+        <PrivateRoute exact path="/inventory" component={Inventory} />
+        <PrivateRoute exact path="/inventory/:item_id" component={InventoryItem} />
         <Route component={NoRouteMatch} />
       </Switch>
     )
@@ -48,6 +50,7 @@ class App extends React.PureComponent<AppProps> {
           className={css.backDrop}
         />
         <ToastContainer store={ToastStore}/>
+        <BuyItemModal />
         { this.renderPathComponent() }
       </div>
     );

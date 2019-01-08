@@ -16,11 +16,21 @@
     span{
       line-height: 18px;
 
-      &:last-child{
+      &.category{
         text-transform: uppercase;
         font-size:12px;
         line-height: 12px;
       }
+
+      &.description{
+        opacity: 0.3;
+        margin-top:1rem;
+      }
     }
+  }
+
+  @media screen and (max-width:$verySmall) {
+    grid-gap:5px;
+    font-size:14px;
   }
 }

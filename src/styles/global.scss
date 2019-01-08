@@ -1,3 +1,5 @@
+@import "./variables";
+
 html, body,:global(#root){
   min-height:100vh;
 }
@@ -36,4 +38,57 @@ p{
 :global(.itemImage){
   border-radius:4px;
   border:1px solid $blockBorder;
+
+  @media screen and (max-width: $verySmall) {
+    width:48px;
+  }
+}
+
+:global(.riskBlock){
+  border-radius:50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+:global(.title){
+  margin:0;
+  font-size:40px;
+  color:$gold;
+  font-family: $font-family-sans-serif;
+
+  @media screen and (max-width:$small){
+    font-size:40px;
+  }
+}
+
+:global(.subtitle){
+  opacity:0.6;
+  font-size:26px;
+  margin:0;
+
+  @media screen and (max-width:$small){
+    font-size:20px;
+  }
+}
+
+:global(.SVGInline){
+  text-align: center;
+  display: inline-block;
+}
+
+.view{
+  width:95%;
+  max-width:100rem;
+  margin:auto;
+
+  @media screen and (max-width:$small){
+    width:100%;
+    padding:0!important;
+  }
+
+  @media screen and (max-width: $verySmall) {
+    :global(.block){
+      padding-top:calc(55px + 1rem)!important;
+    }
+  }
 }

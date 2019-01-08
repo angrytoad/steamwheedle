@@ -1,45 +1,6 @@
+@import "../../../styles/variables";
+@import "../../../styles/global";
+
 .play{
-  display:grid;
-  position: absolute;
-  top:2rem;
-  right:2rem;
-  left:2rem;
-  bottom:2rem;
-  grid-gap:2rem;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 380px 1fr 380px;
-  grid-template-areas:
-          "top top top"
-          "left main right";
-
-  .top{
-    grid-area: top;
-  }
-
-  .left{
-    grid-area: left;
-    display:grid;
-    grid-gap:2rem;
-    grid-template-rows: 1fr 2fr 1fr;
-    grid-template-areas:
-          "glanceBalance"
-          "glanceInventory"
-          "donations";
-  }
-
-  .main{
-    grid-area: main;
-    display:grid;
-    grid-template-areas: "mainView";
-  }
-
-  .right{
-    grid-area: right;
-    display:grid;
-    grid-gap:2rem;
-    grid-template-rows: 2fr 1fr;
-    grid-template-areas:
-            "glanceHoldings"
-            "glanceMarketActivity";
-  }
+  @extend .view;
 }

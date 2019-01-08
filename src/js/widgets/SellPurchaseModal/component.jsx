@@ -103,7 +103,10 @@ class SellPurchaseModal extends React.PureComponent<
               </Modal.Header>
               <Modal.Content>
                 <strong>How many would you like to sell? [{ numeral(quantity).format('0,0') }/{ numeral(purchase.current).format('0,0') }]</strong>
-                <Money amount={item.current_price * quantity} size="large" />
+                <hr />
+                <strong>Value of Sale</strong>
+                <Money amount={numeral(item.current_price).multiply(quantity).multiply(0.95).value()} size="large" />
+                <small>5% AH fee taken from all sales</small>
                 <hr />
                 <Input
                   type="number"

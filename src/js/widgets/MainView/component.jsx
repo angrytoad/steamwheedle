@@ -4,6 +4,8 @@ import type { MainViewProps, MainViewState } from './container';
 import ApplicationActions from '../../store/actions/application.actions';
 
 import Auction from '../../views/Auction/container';
+import Inventory from '../../views/Inventory/container';
+//import Balance from '../../views/Balance/container';
 import PurchaseGroupView from '../../views/PurchaseGroupView/container';
 
 class MainView extends React.PureComponent<MainViewProps, MainViewState> {
@@ -16,6 +18,10 @@ class MainView extends React.PureComponent<MainViewProps, MainViewState> {
         return <Auction />;
       case 'purchaseGroup':
         return <PurchaseGroupView />;
+      case 'inventory':
+        return <Inventory />;
+      case 'balance':
+        //return <Balance />;
       default:
         return <h1>No View Found for {view}</h1>;
     }

@@ -35,7 +35,7 @@ class Money extends React.PureComponent<MoneyProps, MoneyState> {
     };
   }
 
-  static setCopper = (amount: number = 0): number => amount % 100;
+  static setCopper = (amount: number = 0): number => math.floor(amount % 100);
 
   static setSilver = (amount: number = 0): number => math
     .floor(numeral(amount).divide(100).value() % 100);

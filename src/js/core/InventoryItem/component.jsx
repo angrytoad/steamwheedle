@@ -12,6 +12,7 @@ import PlayMenu from '../../ui/PlayMenu/component';
 import AuctionItemsLoader from '../../loaders/AuctionItemsLoader/container';
 import InventoryLoader from '../../loaders/InventoryLoader/container';
 import XpBar from '../../widgets/XpBar/container';
+import GlobalTimer from '../../widgets/GlobalTimer/container';
 
 class InventoryItem extends React.PureComponent<InventoryItemProps, InventoryItemState> {
   render() {
@@ -28,9 +29,11 @@ class InventoryItem extends React.PureComponent<InventoryItemProps, InventoryIte
             </InventoryLoader>
           </AuctionItemsLoader>
         </Block>
+
         <PlayMenu location={location} currentUser={currentUser} />
         <BalanceMenu currentUser={currentUser} />
         <XpBar currentUser={currentUser} />
+        <GlobalTimer />
       </div>
     );
   }

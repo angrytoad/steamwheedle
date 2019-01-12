@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import numeral from 'numeral';
+import uuidv4 from 'uuid/v4';
 import type { XpBarProps, XpBarState } from './container';
 import css from './styles.module.scss';
 import { playSound } from '../../helpers/soundHelper';
@@ -22,7 +23,7 @@ class XpBar extends React.PureComponent<XpBarProps, XpBarState> {
   get buildSegments() {
     const segments = [];
     for (let i = 0; i < 19; i += 1) {
-      segments.push(<div className={css.segmentItem} />);
+      segments.push(<div key={uuidv4()} className={css.segmentItem} />);
     }
     return segments;
   }

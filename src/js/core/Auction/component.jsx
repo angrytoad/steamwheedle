@@ -9,6 +9,7 @@ import AuctionView from '../../views/Auction/container';
 import BalanceMenu from '../../ui/BalanceMenu/component';
 import PlayMenu from '../../ui/PlayMenu/component';
 import XpBar from '../../widgets/XpBar/container';
+import GlobalTimer from '../../widgets/GlobalTimer/container';
 
 class Auction extends React.PureComponent<AuctionProps, AuctionState> {
   render() {
@@ -19,9 +20,11 @@ class Auction extends React.PureComponent<AuctionProps, AuctionState> {
         <Block>
           <AuctionView />
         </Block>
+
         <PlayMenu location={location} currentUser={currentUser} />
         <BalanceMenu currentUser={currentUser} />
         <XpBar currentUser={currentUser} />
+        <GlobalTimer />
       </div>
     );
   }

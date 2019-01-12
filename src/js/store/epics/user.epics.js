@@ -7,7 +7,6 @@ import apiServiceClient from '../apiServiceClient';
 import type { CurrentUser } from '../types/user.types';
 import type { PayloadAction } from '../types/redux.types';
 import type { AuctionItem } from '../types/auction.types';
-import type { GetAuctionItemsPayloadAction } from './auction.epics';
 
 export default class UserEpics {
   getCurrentUser = (action$: any) => action$.ofType('GET_CURRENT_USER_REQUEST').pipe(mergeMap((action: PayloadAction) => Observable.create((observer: any) => {

@@ -10,7 +10,7 @@ import {
   userAuctionPurchasesReducer,
 } from './user.reducers';
 import { userLoggedInReducer } from './auth.reducers';
-import { viewReducer } from './application.reducers';
+import {globalCountdownReducer, nextUpdateReducer, soundSettingsReducer, viewReducer} from './application.reducers';
 import {
   allAuctionItemsReducer,
   auctionCategoriesReducer,
@@ -30,4 +30,7 @@ export default combineReducers({
   allAuctionItems: allAuctionItemsReducer,
   activePurchaseGroup: activePurchaseGroupReducer,
   availableLevels: availableLevelsReducer,
+  globalCountdown: globalCountdownReducer,
+  nextUpdate: nextUpdateReducer,
+  soundSettings: soundSettingsReducer,
 });

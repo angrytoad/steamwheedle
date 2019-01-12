@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
 import { Switch, Route } from 'react-router';
+import { Howl } from "howler";
 import {ToastContainer, ToastStore} from 'react-toasts';
 import type { AppProps } from './container';
 import '../../../styles/core.scss';
-import TestActions from '../../store/actions/test.actions';
 
 import background from "../../../resources/images/steamwheedle_background.jpg";
 import css from "./styles.module.scss";
@@ -19,7 +19,23 @@ import Play from '../Play/container';
 import Auction from '../Auction/container';
 import Inventory from '../Inventory/container';
 import InventoryItem from '../InventoryItem/container';
+import Settings from '../Settings/container';
+
 import BuyItemModal from "../../widgets/BuyItemModal/container";
+import ApplicationActions from "../../store/actions/application.actions";
+
+
+const ambient = new Howl({
+  src: [`/music/bg/TavernCrowded.wav`],
+  loop: true,
+  volume: 0.2,
+});
+
+const music = new Howl({
+  src: [`/music/bg/TavernAlliance01.mp3`],
+  loop: true,
+  volume: 0.1,
+});
 
 class App extends React.PureComponent<AppProps> {
 
@@ -33,10 +49,45 @@ class App extends React.PureComponent<AppProps> {
         <PrivateRoute exact path="/auction" component={Auction} />
         <PrivateRoute exact path="/inventory" component={Inventory} />
         <PrivateRoute exact path="/inventory/:item_id" component={InventoryItem} />
+        <PrivateRoute exact path="/settings" component={Settings} />
         <Route component={NoRouteMatch} />
       </Switch>
     )
   };
+
+  applicationActions = new ApplicationActions();
+
+  startMusic = () => {
+    music.play()
+  };
+
+  stopMusic = () => {
+    music.stop()
+  };
+
+  startAmbient = () => {
+    ambient.play()
+  };
+
+  stopAmbient = () => {
+    ambient.stop()
+  };
+
+  componentDidMount = () => {
+    this.applicationActions.loadSettings();
+
+    document.addEventListener('startMusic', this.startMusic);
+    document.addEventListener('stopMusic', this.stopMusic);
+    document.addEventListener('startAmbient', this.startAmbient);
+    document.addEventListener('stopAmbient', this.stopAmbient);
+  };
+
+  componentWillUnmount =() => {
+    document.removeEventListener('startMusic', this.startMusic);
+    document.removeEventListener('stopMusic', this.stopMusic);
+    document.removeEventListener('startAmbient', this.startAmbient);
+    document.removeEventListener('stopAmbient', this.stopAmbient);
+  }
 
   render() {
     return (

@@ -7,20 +7,16 @@ import ApplicationActions from '../../store/actions/application.actions';
 import auction from '../../../resources/images/ui/auction.png';
 import inventory from '../../../resources/images/ui/inventory.png';
 import balance from '../../../resources/images/ui/balance.png';
+import home from '../../../resources/images/ui/home.png';
+import settings from '../../../resources/images/ui/settings.png';
 import type { CurrentUser } from '../../store/types/user.types';
-import Money from '../Money/component';
 
 type PlayMenuProps = {
   location: string,
   currentUser: CurrentUser,
 };
 
-type PlayMenuState = {
-
-}
-
-class PlayMenu extends React.PureComponent<PlayMenuProps, PlayMenuState> {
-
+class PlayMenu extends React.PureComponent<PlayMenuProps> {
   render() {
     const { location, currentUser } = this.props;
 
@@ -50,16 +46,28 @@ class PlayMenu extends React.PureComponent<PlayMenuProps, PlayMenuState> {
 
         </div>
         <div
-          className={`${css.menuItem} ${location.pathname === '/balance' ? css.active : css.notActive}`}
+          className={`${css.menuItem}`}
         >
-          <Link to="/balance">
+          <Link
+            to="/play"
+            className={location.pathname === '/play' ? css.active : css.notActive}
+          >
             <img
-              src={balance}
-              alt="Vault"
-              title="Vault"
+              src={home}
+              alt="Home"
+              title="Home"
             />
           </Link>
-
+          <Link
+            to="/settings"
+            className={location.pathname === '/settings' ? css.active : css.notActive}
+          >
+            <img
+              src={settings}
+              alt="Settings"
+              title="Settings"
+            />
+          </Link>
         </div>
       </div>
     );

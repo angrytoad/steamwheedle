@@ -8,6 +8,8 @@
   padding-bottom:6rem;
   padding-top:4rem;
   min-height: 100vh;
+  display:grid;
+  align-items: center;
 
   > div{
     padding: 1rem;
@@ -67,5 +69,6 @@
 
   @media screen and (max-width:$small){
     padding-top:0;
+    padding-bottom:10rem;
   }
 }

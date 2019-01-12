@@ -7,7 +7,7 @@
   bottom:$xpbarHeight;
   width:auto;
   margin:auto;
-  border:3px ridge $blockBorder;
+  border:2px ridge rgba(white,0.3);
   border-bottom:none;
   border-left: none;
   background:$darkBackground;
@@ -23,7 +23,7 @@
     border-radius:10px;
 
 
-    &:hover{
+    a:hover{
       cursor:pointer;
 
       &:not(.active){
@@ -77,6 +77,10 @@
     .menuItem{
       margin:0 0.5rem;
     }
+  }
+
+  @media screen and (max-width: $small) {
+    bottom: calc(#{$xpbarHeight} + #{$timerHeight});
   }
 
   @media screen and (max-width: $verySmall) {

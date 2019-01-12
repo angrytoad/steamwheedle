@@ -6,3 +6,23 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+@mixin wrapper {
+  background:rgba($darkBackground,0.4);
+  width:100%;
+  max-width:600px;
+  padding:1rem;
+  border-radius:4px;
+  border:1px solid $blockBorder;
+}
+
+@mixin fs-grid {
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

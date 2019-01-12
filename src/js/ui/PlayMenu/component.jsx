@@ -2,11 +2,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import css from './styles.module.scss';
-import ApplicationActions from '../../store/actions/application.actions';
 
 import auction from '../../../resources/images/ui/auction.png';
 import inventory from '../../../resources/images/ui/inventory.png';
-import balance from '../../../resources/images/ui/balance.png';
 import home from '../../../resources/images/ui/home.png';
 import settings from '../../../resources/images/ui/settings.png';
 import type { CurrentUser } from '../../store/types/user.types';
@@ -39,14 +37,14 @@ class PlayMenu extends React.PureComponent<PlayMenuProps> {
           <Link to="/inventory">
             <img
               src={inventory}
-              alt="Warehouse"
-              title="Warehouse"
+              alt="Inventory"
+              title="Inventory"
             />
           </Link>
 
         </div>
         <div
-          className={`${css.menuItem}`}
+          className={`${css.menuItem} ${css.double}`}
         >
           <Link
             to="/play"

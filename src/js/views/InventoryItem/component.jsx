@@ -68,9 +68,6 @@ class InventoryItem extends React.PureComponent<InventoryItemProps, InventoryIte
     const auctionPurchaseItem = this.AuctionPurchaseItem;
     const { userAuctionPurchases, activePurchaseGroup, currentUser } = this.props;
 
-    console.log(auctionPurchaseItem);
-    console.log(currentUser);
-
     return (
       <div className={`${css.inventoryItem} animated fadeIn`}>
         <div className={css.itemInfo}>

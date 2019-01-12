@@ -8,6 +8,7 @@ import css from './styles.module.scss';
 import checkmark from '../../../resources/icons/checkmark.svg';
 import close from '../../../resources/icons/close.svg';
 import ApplicationActions from '../../store/actions/application.actions';
+import BackButton from '../../ui/BackButton/component';
 
 class Settings extends React.PureComponent<SettingsProps> {
   applicationActions = new ApplicationActions();
@@ -71,6 +72,7 @@ class Settings extends React.PureComponent<SettingsProps> {
                 )
             }
           </div>
+          <BackButton />
         </div>
       </div>
     );

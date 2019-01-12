@@ -10,14 +10,9 @@ import heart from '../../../resources/icons/heart.svg';
 import huzzah from '../../../resources/images/youtubers/huzzah.png';
 import history from '../../routing/history';
 
+import SettingsLink from '../../ui/SettingsLink/component';
+
 class Landing extends React.PureComponent<LandingProps, LandingState> {
-  state = {
-
-  };
-
-  componentDidMount = () => {
-
-  };
 
   handleGoToRegistration = () => {
     history.push('/register');
@@ -62,6 +57,7 @@ class Landing extends React.PureComponent<LandingProps, LandingState> {
             </ul>
           </div>
         </div>
+        <SettingsLink />
       </div>
     );
   }

@@ -49,7 +49,7 @@ class App extends React.PureComponent<AppProps> {
         <PrivateRoute exact path="/auction" component={Auction} />
         <PrivateRoute exact path="/inventory" component={Inventory} />
         <PrivateRoute exact path="/inventory/:item_id" component={InventoryItem} />
-        <PrivateRoute exact path="/settings" component={Settings} />
+        <Route exact path="/settings" component={Settings} />
         <Route component={NoRouteMatch} />
       </Switch>
     )
@@ -74,12 +74,12 @@ class App extends React.PureComponent<AppProps> {
   };
 
   componentDidMount = () => {
-    this.applicationActions.loadSettings();
-
     document.addEventListener('startMusic', this.startMusic);
     document.addEventListener('stopMusic', this.stopMusic);
     document.addEventListener('startAmbient', this.startAmbient);
     document.addEventListener('stopAmbient', this.stopAmbient);
+
+    this.applicationActions.loadSettings();
   };
 
   componentWillUnmount =() => {

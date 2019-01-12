@@ -8,6 +8,7 @@ import css from './styles.module.scss';
 import UserActions from '../../store/actions/user.actions';
 import AuthActions from '../../store/actions/auth.actions';
 import history from '../../routing/history';
+import SettingsLink from "../../ui/SettingsLink/component";
 
 class Login extends React.PureComponent<LoginProps, LoginState> {
   state = {
@@ -119,6 +120,7 @@ class Login extends React.PureComponent<LoginProps, LoginState> {
             Login
           </Button>
         </Form>
+        <SettingsLink />
       </div>
     );
   }

@@ -13,7 +13,6 @@ export default class ApplicationEpics {
     if (Cookies.get('auth_token') !== undefined || action.payload.redirect) {
       axios.get(`${process.env.API}/auction/update`, apiServiceClient.options())
         .then(({ data }: GlobalCountdown) => {
-          console.log(data);
           observer.next({
             type: 'GET_GLOBAL_COUNTDOWN_REQUEST_SUCCESS',
             payload: data,

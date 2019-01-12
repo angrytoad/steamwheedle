@@ -19,7 +19,7 @@ class RiskBlock extends React.PureComponent<RiskBlockProps> {
     const { size = 32, color = '', risk = '' } = this.props;
 
     return (
-      <div
+      <span
         className="riskBlock"
         title={risk}
         style={{

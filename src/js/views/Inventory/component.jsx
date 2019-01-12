@@ -14,8 +14,8 @@ class Inventory extends React.PureComponent<InventoryProps, InventoryState> {
     return (
       <div className={`${css.inventory} animated fadeIn`}>
         <div className={css.topper}>
-          <h1 className="title">Warehouse</h1>
-          <h4 className="subtitle">Manage and Sell your stock.</h4>
+          <h1 className="title">Inventory</h1>
+          <h4 className="subtitle">Manage and Sell your items.</h4>
         </div>
         <InventoryList />
       </div>

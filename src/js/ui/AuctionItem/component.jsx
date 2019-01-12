@@ -20,7 +20,6 @@ type AuctionItemProps = {
 class AuctionItem extends React.PureComponent<AuctionItemProps> {
   get trend() {
     const { item } = this.props;
-    console.log(item);
     const oldInvestmentValue = numeral(item.base_price).value();
     const newInvestmentValue = numeral(item.current_price).value();
     return numeral(newInvestmentValue)

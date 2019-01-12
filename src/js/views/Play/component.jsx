@@ -6,6 +6,7 @@ import css from './styles.module.scss';
 import auction from '../../../resources/images/ui/auction.png';
 import inventory from '../../../resources/images/ui/inventory.png';
 import balance from '../../../resources/images/ui/balance.png';
+import settings from '../../../resources/images/ui/settings.png';
 
 class Play extends React.PureComponent<PlayProps, PlayState> {
   state = {
@@ -47,11 +48,11 @@ class Play extends React.PureComponent<PlayProps, PlayState> {
               <Link to="/inventory">
                 <img
                   src={inventory}
-                  alt="My Inventory"
-                  title="My Inventory"
+                  alt="Inventory"
+                  title="Inventory"
                 />
                 <div className={css.name}>
-                  Warehouse
+                  Inventory
                 </div>
               </Link>
 
@@ -59,17 +60,16 @@ class Play extends React.PureComponent<PlayProps, PlayState> {
             <div
               className={css.pageItem}
             >
-              <Link to="/balance">
+              <Link to="/settings">
                 <img
-                  src={balance}
-                  alt="My Balance"
-                  title="My Balance"
+                  src={settings}
+                  alt="Settings"
+                  title="Settings"
                 />
                 <div className={css.name}>
-                  Vault
+                  Settings
                 </div>
               </Link>
-
             </div>
           </div>
         </div>

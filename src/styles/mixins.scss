@@ -8,6 +8,7 @@
 }
 
 @mixin wrapper {
+  position: relative;
   background:rgba($darkBackground,0.4);
   width:100%;
   max-width:600px;

@@ -119,7 +119,7 @@ class SellPurchaseModal extends React.PureComponent<
                 />
               </Modal.Content>
               <Modal.Actions>
-                <Button basic negative floated="left" onClick={this.handleCloseBuyModal}>Cancel</Button>
+                <Button basic negative floated="left" onClick={this.handleCloseSellPurchaseModal}>Cancel</Button>
                 <Button
                   color="yellow"
                   content="Sell"

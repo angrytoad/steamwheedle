@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import SVGInline from "react-svg-inline";
+import SVGInline from 'react-svg-inline';
 import numeral from 'numeral';
 import css from './styles.module.scss';
 

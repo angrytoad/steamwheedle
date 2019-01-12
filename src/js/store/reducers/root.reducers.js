@@ -10,7 +10,9 @@ import {
   userAuctionPurchasesReducer,
 } from './user.reducers';
 import { userLoggedInReducer } from './auth.reducers';
-import {globalCountdownReducer, nextUpdateReducer, soundSettingsReducer, viewReducer} from './application.reducers';
+import {
+  globalCountdownReducer, nextUpdateReducer, soundSettingsReducer, viewReducer,
+} from './application.reducers';
 import {
   allAuctionItemsReducer,
   auctionCategoriesReducer,

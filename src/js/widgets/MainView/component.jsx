@@ -5,11 +5,10 @@ import ApplicationActions from '../../store/actions/application.actions';
 
 import Auction from '../../views/Auction/container';
 import Inventory from '../../views/Inventory/container';
-//import Balance from '../../views/Balance/container';
+// import Balance from '../../views/Balance/container';
 import PurchaseGroupView from '../../views/PurchaseGroupView/container';
 
 class MainView extends React.PureComponent<MainViewProps, MainViewState> {
-
   applicationActions = new ApplicationActions();
 
   renderView = (view: string): React.Node => {
@@ -21,10 +20,12 @@ class MainView extends React.PureComponent<MainViewProps, MainViewState> {
       case 'inventory':
         return <Inventory />;
       case 'balance':
-        //return <Balance />;
+        // return <Balance />;
+        break;
       default:
-        return <h1>No View Found for {view}</h1>;
+        break;
     }
+    return <h1>No View Found for {view}</h1>;
   };
 
 

@@ -2,7 +2,9 @@
   "name": "steamwheedle",
   "version": "0.0.1",
   "private": true,
-  "devDependencies": {},
+  "devDependencies": {
+    "webpackbar": "^3.1.4"
+  },
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
@@ -76,14 +78,15 @@
     "url-loader": "1.1.1",
     "uuid": "^3.3.2",
     "webpack": "4.19.1",
-    "webpack-dev-server": "3.1.9",
+    "webpack-dev-server": "^3.1.14",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "eslint": "eslint src/**/*.jsx --max-warnings=0 --fix --report-unused-disable-directives && echo '✔  Your code looks good.'"
   },
   "eslintConfig": {
     "extends": "react-app",

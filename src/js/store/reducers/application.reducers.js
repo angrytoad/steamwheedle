@@ -1,6 +1,6 @@
 // @flow
 import type { PayloadAction } from '../types/redux.types';
-import type {GlobalCountdown, SoundSettings} from '../types/application.types';
+import type { GlobalCountdown, SoundSettings } from '../types/application.types';
 
 export const viewReducer = (
   state: string = 'auction',

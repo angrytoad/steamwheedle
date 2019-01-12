@@ -17,8 +17,10 @@ class BackButton extends React.PureComponent<BackButtonProps, BackButtonState> {
       <div
         className={css.backButton}
         onClick={history.goBack}
+        role="button"
+        tabIndex={0}
       >
-        <img src={back} />
+        <img alt="Back" src={back} />
       </div>
     );
   }

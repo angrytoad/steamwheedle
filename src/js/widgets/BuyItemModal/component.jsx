@@ -26,7 +26,7 @@ class BuyItemModal extends React.PureComponent<BuyItemModalProps, BuyItemModalSt
   componentWillUnmount = () => {
     document.removeEventListener('openBuyModal', this.handleOpenBuyModal);
     document.removeEventListener('closeBuyModal', this.handleCloseBuyModal);
-  }
+  };
 
   handleOpenBuyModal = ({ detail }): void => {
     this.setState({
@@ -58,8 +58,6 @@ class BuyItemModal extends React.PureComponent<BuyItemModalProps, BuyItemModalSt
 
   handleBuyCallback = (errors: Array<string>): void => {
     const { item, quantity } = this.state;
-
-    console.log(errors);
     if (errors.length > 0) {
       ToastStore.error(`There was a problem trying to purchase ${item.name}.`);
     } else {

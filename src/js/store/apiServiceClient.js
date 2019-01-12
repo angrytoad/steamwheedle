@@ -1,8 +1,8 @@
 // @flow
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import history from '../routing/history';
 import { ToastStore } from 'react-toasts';
+import history from '../routing/history';
 
 const getAuthCookie = (): string => Cookies.get('auth_token');
 
@@ -24,7 +24,7 @@ axios.interceptors.response.use(null, (error) => {
   if (error.response.status === 401) {
     Cookies.remove('auth_token');
     history.push('/login');
-    //ToastStore.error('Please login to continue.');
+    // ToastStore.error('Please login to continue.');
   }
 
   if (error.response.status === 422) {

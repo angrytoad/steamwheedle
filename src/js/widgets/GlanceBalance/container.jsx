@@ -2,7 +2,7 @@
 import connect from 'react-redux/es/connect/connect';
 import type { AppState } from '../../store/state';
 import GlanceBalance from './component';
-import type {CurrentUser} from "../../store/types/user.types";
+import type { CurrentUser } from '../../store/types/user.types';
 
 type ReduxStateProps = {|
   currentUser: CurrentUser,

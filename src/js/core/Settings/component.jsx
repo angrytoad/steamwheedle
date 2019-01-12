@@ -13,7 +13,7 @@ class Settings extends React.PureComponent<SettingsProps, SettingsState> {
   applicationActions = new ApplicationActions();
 
   componentDidMount = () => {
-    //this.applicationActions.loadSettings();
+    // this.applicationActions.loadSettings();
   };
 
   render() {

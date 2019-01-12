@@ -9,8 +9,8 @@ import silverIcon from '../../../resources/images/ui/Silver.png';
 import copperIcon from '../../../resources/images/ui/Copper.png';
 
 type MoneyProps = {
-  amount: number,
   size: string,
+  alignment: string,
 }
 
 type MoneyState = {

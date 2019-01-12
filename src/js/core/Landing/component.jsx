@@ -13,7 +13,6 @@ import history from '../../routing/history';
 import SettingsLink from '../../ui/SettingsLink/component';
 
 class Landing extends React.PureComponent<LandingProps, LandingState> {
-
   handleGoToRegistration = () => {
     history.push('/register');
   };

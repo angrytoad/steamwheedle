@@ -11,7 +11,7 @@ class SettingsLink extends React.PureComponent {
         className={css.settingsLink}
       >
         <Link to="/settings">
-          <img src={settings} />
+          <img alt="Settings" src={settings} />
         </Link>
       </div>
     );

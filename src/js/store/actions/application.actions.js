@@ -50,11 +50,17 @@ export default class ApplicationActions {
   }
 
   loadSettings() {
-    const playMusic = Cookies.get('steamwheedlePlayMusic');
-    const playAmbient = Cookies.get('steamwheedlePlayAmbient');
+    let playMusic = Cookies.get('steamwheedlePlayMusic');
+    let playAmbient = Cookies.get('steamwheedlePlayAmbient');
 
-    if (playMusic === undefined) { Cookies.set('steamwheedlePlayMusic', true, { expires: 11000 }); }
-    if (playAmbient === undefined) { Cookies.set('steamwheedlePlayAmbient', true, { expires: 11000 }); }
+    if (playMusic === undefined) {
+      Cookies.set('steamwheedlePlayMusic', true, { expires: 11000 });
+      playMusic = 'true';
+    }
+    if (playAmbient === undefined) {
+      Cookies.set('steamwheedlePlayAmbient', true, { expires: 11000 });
+      playAmbient = 'true';
+    }
 
     if (playMusic === 'true') {
       document.dispatchEvent(new CustomEvent('startMusic'));

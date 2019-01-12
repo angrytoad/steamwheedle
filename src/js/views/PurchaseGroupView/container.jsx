@@ -2,7 +2,7 @@
 import connect from 'react-redux/es/connect/connect';
 import type { AppState } from '../../store/state';
 import PurchaseGroupView from './component';
-import type {AuctionItem, AuctionPurchase, AuctionPurchases} from '../../store/types/auction.types';
+import type { AuctionItem, AuctionPurchase, AuctionPurchases } from '../../store/types/auction.types';
 
 type ReduxStateProps = {|
   activePurchaseGroup: AuctionPurchase[],

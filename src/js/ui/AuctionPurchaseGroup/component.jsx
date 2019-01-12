@@ -8,7 +8,10 @@ import ItemImageName from '../ItemImageName/component';
 import ApplicationActions from '../../store/actions/application.actions';
 import UserActions from '../../store/actions/user.actions';
 
-class AuctionPurchaseGroup extends React.PureComponent<AuctionPurchaseGroupProps, AuctionPurchaseGroupState> {
+class AuctionPurchaseGroup extends React.PureComponent<
+  AuctionPurchaseGroupProps,
+  AuctionPurchaseGroupState
+  > {
   applicationActions = new ApplicationActions();
 
   userActions = new UserActions();

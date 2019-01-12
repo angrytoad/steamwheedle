@@ -10,7 +10,6 @@ import InventoryList from '../../widgets/InventoryList/container';
 
 class Inventory extends React.PureComponent<InventoryProps, InventoryState> {
   render() {
-
     return (
       <div className={`${css.inventory} animated fadeIn`}>
         <div className={css.topper}>

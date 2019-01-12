@@ -18,15 +18,9 @@ import Money from '../../ui/Money/component';
 import RiskBlock from '../../ui/RiskBlock/component';
 
 class InventoryItem extends React.PureComponent<InventoryItemProps, InventoryItemState> {
-  get AuctionPurchaseItem() {
-    const { allAuctionItems, itemId } = this.props;
-    return _.find(allAuctionItems, item => item.id === itemId);
-  }
-
   userActions = new UserActions();
 
   applicationActions = new ApplicationActions();
-
 
   componentDidMount() {
     this.userActions.setActivePurchaseGroup(this.findActivePurchaseGroup());
@@ -36,6 +30,11 @@ class InventoryItem extends React.PureComponent<InventoryItemProps, InventoryIte
   componentWillUnmount() {
     this.userActions.clearActivePurchaseGroup();
     document.removeEventListener('updateActivePurchaseGroup', this.updateActivePurchaseGroup);
+  }
+
+  get AuctionPurchaseItem() {
+    const { allAuctionItems, itemId } = this.props;
+    return _.find(allAuctionItems, item => item.id === itemId);
   }
 
   findActivePurchaseGroup = () => {

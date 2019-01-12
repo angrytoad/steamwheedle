@@ -9,21 +9,13 @@ type ItemImageNameProps = {
   description?: boolean,
 }
 
-class ItemImageName extends React.PureComponent<ItemImageNameProps, ItemImageNameState> {
-  state = {
-
-  };
-
-  componentDidMount = () => {
-
-  };
-
+class ItemImageName extends React.PureComponent<ItemImageNameProps> {
   render() {
     const { item, description = false } = this.props;
 
     return (
       <div className={css.itemImageName}>
-        <img className="itemImage" src={item.image} />
+        <img alt={item.name} className="itemImage" src={item.image} />
         <div>
           <span style={{ color: getRarityColor(item.rarity.name) }}>{ item.name }</span>
           <span className={`${css.category} text-muted`}><small>{ item.category.name }</small></span>
@@ -40,5 +32,9 @@ class ItemImageName extends React.PureComponent<ItemImageNameProps, ItemImageNam
     );
   }
 }
+
+ItemImageName.defaultProps = {
+  description: false,
+};
 
 export default ItemImageName;

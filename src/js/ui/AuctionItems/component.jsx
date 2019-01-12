@@ -85,7 +85,7 @@ class AuctionItems extends React.PureComponent<AuctionItemsProps, AuctionItemsSt
                   auctionItems.length === 0
                     ? <p>No Items here m&apos;lord.</p>
                     : (
-                      <table className='animated fadeIn'>
+                      <table className="animated fadeIn">
                         <thead className={css.auctionItemsHeader}>
                           <tr>
                             <th>Item</th>

@@ -61,7 +61,7 @@ class GlobalTimer extends React.PureComponent<GlobalTimerProps, GlobalTimerState
     return (
       <div className={css.globalTimer}>
         <div className={css.wrapper}>
-          <h3>Next <img style={{ width: '32px' }} src={auction} /> Update:</h3>
+          <h3>Next <img alt="Auction" style={{ width: '32px' }} src={auction} /> Update:</h3>
           <div className={css.nextUpdate}>
             {
               countdownLoading

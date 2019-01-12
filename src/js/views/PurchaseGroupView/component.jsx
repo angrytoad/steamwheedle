@@ -16,11 +16,6 @@ class PurchaseGroupView extends React.PureComponent<
   PurchaseGroupViewProps,
   PurchaseGroupViewState
   > {
-  get AuctionPurchaseItem() {
-    const { allAuctionItems, activePurchaseGroup } = this.props;
-    return _.find(allAuctionItems, item => item.id === activePurchaseGroup[0].item_id);
-  }
-
   userActions = new UserActions();
 
   applicationActions = new ApplicationActions();
@@ -34,6 +29,11 @@ class PurchaseGroupView extends React.PureComponent<
     document.removeEventListener('sellPurchaseModal', this.getAuctionItemsCallback);
     document.removeEventListener('updateActivePurchaseGroup', this.updateActivePurchaseGroup);
   };
+
+  get AuctionPurchaseItem() {
+    const { allAuctionItems, activePurchaseGroup } = this.props;
+    return _.find(allAuctionItems, item => item.id === activePurchaseGroup[0].item_id);
+  }
 
   updateActivePurchaseGroup = () => {
     const { userAuctionPurchases, activePurchaseGroup, allAuctionItems } = this.props;

@@ -11,6 +11,7 @@ class GlanceHoldings extends React.PureComponent<GlanceHoldingsProps, GlanceHold
   componentDidMount = () => {
 
   };
+
   render() {
     return (
       <div className={css.glanceHoldings}>

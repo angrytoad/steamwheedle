@@ -3,7 +3,10 @@ import React from 'react';
 import type { AuctionItemsLoaderProps, AuctionItemsLoaderState } from './container';
 import AuctionActions from '../../store/actions/auction.actions';
 
-class AuctionItemsLoader extends React.PureComponent<AuctionItemsLoaderProps, AuctionItemsLoaderState> {
+class AuctionItemsLoader extends React.PureComponent<
+  AuctionItemsLoaderProps,
+  AuctionItemsLoaderState
+  > {
   auctionActions = new AuctionActions();
 
   componentDidMount = () => {

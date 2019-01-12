@@ -3,7 +3,7 @@ import { bindActionCreators, type Dispatch } from 'redux';
 import connect from 'react-redux/es/connect/connect';
 import type { AppState } from '../../store/state';
 import Play from './component';
-import type {CurrentUser} from "../../store/types/user.types";
+import type { CurrentUser } from '../../store/types/user.types';
 
 type ReduxStateProps = {|
   view: string,

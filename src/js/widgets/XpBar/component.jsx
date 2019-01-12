@@ -8,8 +8,14 @@ import { playSound } from '../../helpers/soundHelper';
 
 class XpBar extends React.PureComponent<XpBarProps, XpBarState> {
   state = {
-    oldUser: this.props.currentUser,
   };
+
+  constructor(...args) {
+    super(...args);
+
+    const { currentUser } = this.props;
+    this.state = { oldUser: currentUser };
+  }
 
   static getDerivedStateFromProps(props, state) {
     if (props.currentUser.level !== state.oldUser.level) {
@@ -20,21 +26,22 @@ class XpBar extends React.PureComponent<XpBarProps, XpBarState> {
     };
   }
 
-  get buildSegments() {
-    const segments = [];
-    for (let i = 0; i < 19; i += 1) {
-      segments.push(<div key={uuidv4()} className={css.segmentItem} />);
-    }
-    return segments;
-  }
-
   get currentXpWidth() {
     const { availableLevels, currentUser } = this.props;
+    const { oldUser } = this.state;
     return numeral(100)
       .divide(availableLevels[currentUser.level])
       .multiply(currentUser.current_experience)
       .value();
   }
+
+  buildSegments = () => {
+    const segments = [];
+    for (let i = 0; i < 19; i += 1) {
+      segments.push(<div key={uuidv4()} className={css.segmentItem} />);
+    }
+    return segments;
+  };
 
   render() {
     const { availableLevels, currentUser } = this.props;
@@ -46,7 +53,7 @@ class XpBar extends React.PureComponent<XpBarProps, XpBarState> {
             && (
             <React.Fragment>
               <div className={css.segments}>
-                { this.buildSegments }
+                { this.buildSegments() }
               </div>
               <div className={css.summary}>
                 {

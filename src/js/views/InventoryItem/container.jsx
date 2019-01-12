@@ -2,8 +2,8 @@
 import connect from 'react-redux/es/connect/connect';
 import type { AppState } from '../../store/state';
 import InventoryItem from './component';
-import type {AuctionItem, AuctionPurchase, AuctionPurchases} from '../../store/types/auction.types';
-import type {CurrentUser} from "../../store/types/user.types";
+import type { AuctionItem, AuctionPurchase, AuctionPurchases } from '../../store/types/auction.types';
+import type { CurrentUser } from '../../store/types/user.types';
 
 type ReduxStateProps = {|
   allAuctionItems: AuctionItem[],

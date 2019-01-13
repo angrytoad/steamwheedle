@@ -17,7 +17,7 @@ export type GetAuctionItemsPayloadAction<T> = {
 
 export default class AuctionEpics {
   getAuctionCategories = (action$: any) => action$.ofType('GET_AUCTION_CATEGORIES_REQUEST').pipe(mergeMap((action: PayloadAction) => Observable.create((observer: any) => {
-    if (Cookies.get('auth_token') !== undefined || action.payload.redirect) {
+    if (Cookies.get('auth_token') !== undefined) {
       axios.get(`${process.env.API}/auction/categories`, apiServiceClient.options())
         .then(({ data }: AuctionCategory[]) => {
           observer.next({
@@ -39,7 +39,7 @@ export default class AuctionEpics {
   })));
 
   getAuctionItems = (action$: any) => action$.ofType('GET_AUCTION_ITEMS_REQUEST').pipe(mergeMap((action: GetAuctionItemsPayloadAction) => Observable.create((observer: any) => {
-    if (Cookies.get('auth_token') !== undefined || action.payload.redirect) {
+    if (Cookies.get('auth_token') !== undefined) {
       axios.post(`${process.env.API}/auction/items`,
         {
           categories: action.payload,
@@ -77,7 +77,7 @@ export default class AuctionEpics {
   })));
 
   buyAuctionItem = (action$: any) => action$.ofType('BUY_AUCTION_ITEM_REQUEST').pipe(mergeMap((action: PayloadAction) => Observable.create((observer: any) => {
-    if (Cookies.get('auth_token') !== undefined || action.payload.redirect) {
+    if (Cookies.get('auth_token') !== undefined) {
       axios.post(`${process.env.API}/auction/buy`,
         {
           quantity: action.payload.quantity,
@@ -111,7 +111,7 @@ export default class AuctionEpics {
   })));
 
   sellPurchaseRequest = (action$: any) => action$.ofType('SELL_PURCHASE_REQUEST').pipe(mergeMap((action: GetAuctionItemsPayloadAction) => Observable.create((observer: any) => {
-    if (Cookies.get('auth_token') !== undefined || action.payload.redirect) {
+    if (Cookies.get('auth_token') !== undefined) {
       axios.post(`${process.env.API}/auction/sell`,
         {
           item_purchase_id: action.payload.purchase.id,

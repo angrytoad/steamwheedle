@@ -10,7 +10,7 @@ import type { GlobalCountdown } from '../types/application.types';
 
 export default class ApplicationEpics {
   getGlobalCountdown = (action$: any) => action$.ofType('GET_GLOBAL_COUNTDOWN_REQUEST').pipe(mergeMap((action: PayloadAction) => Observable.create((observer: any) => {
-    if (Cookies.get('auth_token') !== undefined || action.payload.redirect) {
+    if (Cookies.get('auth_token') !== undefined) {
       axios.get(`${process.env.API}/auction/update`, apiServiceClient.options())
         .then(({ data }: GlobalCountdown) => {
           observer.next({

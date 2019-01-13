@@ -38,7 +38,7 @@ export default class UserEpics {
   })));
 
   getUserAuctionPurchases = (action$: any) => action$.ofType('GET_USER_AUCTION_PURCHASES_REQUEST').pipe(mergeMap((action: PayloadAction) => Observable.create((observer: any) => {
-    if (Cookies.get('auth_token') !== undefined || action.payload.redirect) {
+    if (Cookies.get('auth_token') !== undefined) {
       axios.get(`${process.env.API}/user/purchases`, apiServiceClient.options())
         .then(({ data }: AuctionItem[]) => {
           observer.next({
@@ -62,7 +62,7 @@ export default class UserEpics {
   })));
 
   getAvailableLevels = (action$: any) => action$.ofType('GET_AVAILABLE_LEVELS_REQUEST').pipe(mergeMap((action: PayloadAction) => Observable.create((observer: any) => {
-    if (Cookies.get('auth_token') !== undefined || action.payload.redirect) {
+    if (Cookies.get('auth_token') !== undefined) {
       axios.get(`${process.env.API}/levels`, apiServiceClient.options())
         .then(({ data }: number[]) => {
           observer.next({

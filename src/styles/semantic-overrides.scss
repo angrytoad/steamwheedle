@@ -16,3 +16,7 @@
 .ui.inverted.table{
   background: rgba(27, 27, 27, 0.8);
 }
+
+:global(.modal){
+  height:auto;
+}

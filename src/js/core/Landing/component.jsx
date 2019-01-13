@@ -17,6 +17,10 @@ class Landing extends React.PureComponent<LandingProps, LandingState> {
     history.push('/register');
   };
 
+  handleGoToPlay = () => {
+    history.push('/play');
+  };
+
   render() {
     return (
       <div
@@ -39,9 +43,17 @@ class Landing extends React.PureComponent<LandingProps, LandingState> {
             className="my-4"
             color="yellow"
             size="big"
-            onClick={this.handleGoToRegistration}
+            onClick={this.handleGoToPlay}
           >
             Play
+          </Button>
+          <Button
+            className="my-4"
+            color="blue"
+            size="big"
+            onClick={this.handleGoToRegistration}
+          >
+            Register
           </Button>
           <div className={`my-4 ${css.madeWithLove}`}>
             <h2>

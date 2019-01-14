@@ -24,4 +24,8 @@
       fill: $negative;
     }
   }
+
+  &.simple{
+    justify-items: end;
+  }
 }

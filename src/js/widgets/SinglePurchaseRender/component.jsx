@@ -24,6 +24,17 @@ class SinglePurchaseRender extends React.PureComponent<
       .value();
   }
 
+  get baseTrend() {
+    const { purchase, item } = this.props;
+    const oldInvestmentValue = numeral(item.base_price).multiply(purchase.current).value();
+    const newInvestmentValue = numeral(purchase.buy_price).multiply(purchase.current).value();
+    return numeral(newInvestmentValue)
+      .subtract(oldInvestmentValue)
+      .divide(oldInvestmentValue)
+      .multiply(100)
+      .value();
+  }
+
   handleOpenSellPurchaseModal = () => {
     const { purchase, item } = this.props;
     document.dispatchEvent(new CustomEvent('openSellPurchaseModal', {
@@ -46,6 +57,9 @@ class SinglePurchaseRender extends React.PureComponent<
         </Table.Cell>
         <Table.Cell singleLine textAlign="center" verticalAlign="middle">
           <Money amount={numeral(purchase.current).multiply(item.current_price).value()} size="medium" alignment="right" />
+          <span className={css.mobileTrend}>
+            <TrendIndicator simple value={numeral(this.trend).value()} />
+          </span>
         </Table.Cell>
         <Table.Cell singleLine textAlign="center" verticalAlign="middle">
           <TrendIndicator value={numeral(this.trend).value()} />

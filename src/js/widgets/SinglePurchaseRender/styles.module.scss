@@ -1,3 +1,5 @@
+@import "../../../styles/variables";
+
 .singlePurchaseRender{
   .action{
     width:40px;
@@ -10,5 +12,15 @@
 
   td:nth-child(2){
     font-size:24px;
+  }
+
+  .mobileTrend{
+    display:none;
+  }
+
+  @media screen and (max-width:$small) {
+    .mobileTrend{
+      display:block;
+    }
   }
 }

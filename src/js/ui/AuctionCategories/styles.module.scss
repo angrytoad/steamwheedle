@@ -82,7 +82,8 @@
     .categoryBlock{
       .mobileCategoryList{
         top: $balanceMenuMobileHeight;
-        bottom: $playMenuMobileHeight;
+        bottom: calc(#{$playMenuMobileHeight} * 2);
+        padding-bottom:1rem;
       }
     }
   }

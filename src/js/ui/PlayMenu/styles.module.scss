@@ -79,9 +79,14 @@
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
+    padding:5px;
 
     .menuItem{
       margin:0 0.5rem;
+
+      img{
+        width: 50px;
+      }
     }
   }
 
@@ -92,5 +97,11 @@
   @media screen and (max-width: $verySmall) {
     right:0;
     height: $playMenuMobileHeight;
+
+    .menuItem{
+      img{
+        width:32px;
+      }
+    }
   }
 }

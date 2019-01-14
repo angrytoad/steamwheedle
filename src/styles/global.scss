@@ -88,7 +88,7 @@ p{
 
   @media screen and (max-width: $verySmall) {
     :global(.block){
-      padding-top:calc(55px + 1rem)!important;
+      padding-top:calc(#{$balanceMenuMobileHeight} + 1rem)!important;
     }
   }
 }

@@ -42,6 +42,12 @@
     .statBlock{
       min-width:300px;
       margin:0!important;
+      padding:5px;
+
+      .statBlockFigure{
+        font-size:18px;
+        line-height: 18px;
+      }
     }
   }
 }

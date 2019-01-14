@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import numeral from 'numeral';
 import css from './styles.module.scss';
@@ -45,6 +45,9 @@ class AuctionItem extends React.PureComponent<AuctionItemProps> {
         </td>
         <td>
           <Money amount={item.current_price} size="small" alignment="right" />
+          <span className={css.mobileTrend}>
+            <TrendIndicator simple value={numeral(this.trend).value()} />
+          </span>
         </td>
         <td>
           <TrendIndicator value={numeral(this.trend).value()} />

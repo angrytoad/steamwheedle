@@ -32,6 +32,16 @@
     text-transform: uppercase;
   }
 
+  .mobileTrend{
+    display:none;
+  }
+
+  @media screen and (max-width:$small) {
+    .mobileTrend{
+      display:block;
+    }
+  }
+
   @media screen and (max-width:$verySmall) {
     padding: 5px 5px;
 

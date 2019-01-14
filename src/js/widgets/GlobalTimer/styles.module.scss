@@ -1,0 +1,65 @@
+@import "../../../styles/variables";
+
+.globalTimer{
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top:0;
+  width:auto;
+  margin:auto;
+  border:3px ridge $blockBorder;
+  border-top:none;
+  border-left: none;
+  background:$darkBackground;
+  border-radius:0 10px 0 0;
+  padding:1rem;
+  font-size:16px;
+  color:$gold;
+  min-height: 65px;
+
+  .wrapper{
+    display:grid;
+    align-content: center;
+    grid-template-columns: auto 1fr;
+    grid-gap:1rem;
+    align-items: center;
+  }
+
+  h3{
+    margin:0;
+  }
+
+  .nextUpdate{
+    font-size:18px;
+    font-weight: bold;
+    color:$textLight;
+    width:80px;
+    text-align: center;
+
+    h3{
+      font-family: $font-family-monospace!important;
+    }
+
+    :global(.la-timer){
+      margin:auto;
+    }
+  }
+
+
+}
+
+@media screen and (max-width: $small) {
+  .globalTimer{
+    bottom:0;
+    top:auto;
+    width:100%;
+    display: grid;
+    justify-items: center;
+    padding:0;
+    min-height:36px;
+
+    .wrapper{
+      transform: scale(0.6);
+    }
+  }
+}

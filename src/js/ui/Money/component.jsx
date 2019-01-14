@@ -9,8 +9,8 @@ import silverIcon from '../../../resources/images/ui/Silver.png';
 import copperIcon from '../../../resources/images/ui/Copper.png';
 
 type MoneyProps = {
-  amount: number,
   size: string,
+  alignment: string,
 }
 
 type MoneyState = {
@@ -35,26 +35,37 @@ class Money extends React.PureComponent<MoneyProps, MoneyState> {
     };
   }
 
-  static setCopper = (amount: number = 0): number => amount % 100;
+  static setCopper = (amount: number = 0): number => math.floor(amount % 100);
 
   static setSilver = (amount: number = 0): number => math
-    .round(numeral(amount).divide(100).value() % 100);
+    .floor(numeral(amount).divide(100).value() % 100);
 
   static setGold = (amount: number = 0): number => math
-    .round(numeral(amount).divide(10000).value());
+    .floor(numeral(amount).divide(10000).value());
 
   render() {
-    const { size = 'small' } = this.props;
+    const { size = 'small', alignment = 'center' } = this.props;
     const { copper, silver, gold } = this.state;
 
     return (
-      <div className={`${css.money} ${size}`}>
-        <div>
-          { numeral(gold).format('0,0') } <img alt="Gold" src={goldIcon} />
-        </div>
-        <div>
-          { silver } <img alt="Silver" src={silverIcon} />
-        </div>
+      <div className={`${css.money} ${size} ${alignment}`}>
+        {
+            gold > 0
+            && (
+            <div>
+              { numeral(gold).format('0,0') } <img alt="Gold" src={goldIcon} />
+            </div>
+            )
+          }
+
+        {
+          (gold > 0 || silver > 0)
+          && (
+          <div>
+            {silver} <img alt="Silver" src={silverIcon} />
+          </div>
+          )
+        }
         <div>
           { copper } <img alt="Copper" src={copperIcon} />
         </div>

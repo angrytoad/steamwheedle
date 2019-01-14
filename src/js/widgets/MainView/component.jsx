@@ -1,25 +1,31 @@
 // @flow
 import * as React from 'react';
 import type { MainViewProps, MainViewState } from './container';
-import css from './styles.module.scss';
 import ApplicationActions from '../../store/actions/application.actions';
 
-import Auction from '../Auction/container';
+import Auction from '../../views/Auction/container';
+import Inventory from '../../views/Inventory/container';
+// import Balance from '../../views/Balance/container';
+import PurchaseGroupView from '../../views/PurchaseGroupView/container';
 
 class MainView extends React.PureComponent<MainViewProps, MainViewState> {
-  state = {
-
-  };
-
   applicationActions = new ApplicationActions();
 
   renderView = (view: string): React.Node => {
     switch (view) {
       case 'auction':
         return <Auction />;
+      case 'purchaseGroup':
+        return <PurchaseGroupView />;
+      case 'inventory':
+        return <Inventory />;
+      case 'balance':
+        // return <Balance />;
+        break;
       default:
-        return <h1>No View Found for {view}</h1>;
+        break;
     }
+    return <h1>No View Found for {view}</h1>;
   };
 
 
@@ -31,7 +37,7 @@ class MainView extends React.PureComponent<MainViewProps, MainViewState> {
     const { view } = this.props;
 
     return (
-      <React.Fragment className={css.mainView}>
+      <React.Fragment>
         {
           this.renderView(view)
         }

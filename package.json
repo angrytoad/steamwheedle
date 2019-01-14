@@ -2,7 +2,9 @@
   "name": "steamwheedle",
   "version": "0.0.1",
   "private": true,
-  "devDependencies": {},
+  "devDependencies": {
+    "webpackbar": "^3.1.4"
+  },
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
@@ -36,12 +38,14 @@
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
     "history": "^4.7.2",
+    "howler": "^2.0.15",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
     "jest": "23.6.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
     "js-cookie": "^2.2.0",
+    "lodash": "^4.17.11",
     "mathjs": "^5.2.3",
     "mini-css-extract-plugin": "0.4.3",
     "node-sass": "^4.10.0",
@@ -74,14 +78,15 @@
     "url-loader": "1.1.1",
     "uuid": "^3.3.2",
     "webpack": "4.19.1",
-    "webpack-dev-server": "3.1.9",
+    "webpack-dev-server": "^3.1.14",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "eslint": "eslint src/**/*.jsx --max-warnings=0 --fix --report-unused-disable-directives && echo '✔  Your code looks good.'"
   },
   "eslintConfig": {
     "extends": "react-app",

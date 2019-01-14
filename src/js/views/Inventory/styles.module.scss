@@ -1,0 +1,28 @@
+@import "../../../styles/variables";
+
+.inventory{
+  display:grid;
+  grid-template-areas:
+          "topper"
+          "purchases";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-gap:1rem;
+
+  .topper{
+    grid-area: topper;
+    text-align: left;
+    margin-bottom:2rem;
+  }
+
+
+  @media screen and (max-width:$medium){
+
+  }
+
+  @media screen and (max-width: $small) {
+    .topper{
+      padding: 0 1rem;
+    }
+  }
+}

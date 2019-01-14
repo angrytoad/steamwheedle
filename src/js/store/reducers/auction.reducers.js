@@ -1,14 +1,14 @@
 // @flow
 import type { PayloadAction } from '../types/redux.types';
-import type { Category } from '../types/auction.types';
+import type { AuctionItem, AuctionCategory } from '../types/auction.types';
 
 export const auctionCategoriesReducer = (
-  state: Category[] = [],
+  state: AuctionCategory[] = [],
   action: PayloadAction,
 ) => {
   switch (action.type) {
     case 'GET_AUCTION_CATEGORIES_SUCCESS':
-      const categories: Category[] = action.payload;
+      const categories: AuctionCategory[] = action.payload;
       if (categories === undefined || categories === null) {
         return state;
       }
@@ -36,6 +36,42 @@ export const selectedAuctionCategoriesReducer = (
         ...state.slice(0, state.indexOf(action.payload)),
         ...state.slice(state.indexOf(action.payload) + 1),
       ];
+    default: {
+      return state;
+    }
+  }
+};
+
+export const auctionItemsReducer = (
+  state: AuctionItem[] = [],
+  action: PayloadAction,
+) => {
+  switch (action.type) {
+    case 'GET_AUCTION_ITEMS_REQUEST_SUCCESS':
+      const items: AuctionItem[] = action.payload;
+      if (items === undefined || items === null) {
+        return state;
+      }
+      return items;
+    case 'GET_AUCTION_ITEMS_REQUEST_FAIL':
+      return state;
+    default: {
+      return state;
+    }
+  }
+};
+
+export const allAuctionItemsReducer = (
+  state: AuctionItem[] = [],
+  action: PayloadAction,
+) => {
+  switch (action.type) {
+    case 'SET_ALL_AUCTION_ITEMS':
+      const items: AuctionItem[] = action.payload;
+      if (items === undefined || items === null) {
+        return state;
+      }
+      return items;
     default: {
       return state;
     }

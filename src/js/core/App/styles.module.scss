@@ -1,15 +1,15 @@
 @import "../../../styles/variables";
 
 .App{
-  position: relative;
   color:$textLight;
-  text-align: center;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  padding-bottom:6rem;
+  padding-top:4rem;
   min-height: 100vh;
   display:grid;
   align-items: center;
-  background-size:cover;
-  background-repeat: no-repeat;
-  z-index: 0;
 
   > div{
     padding: 1rem;
@@ -17,7 +17,7 @@
 
   .backDrop{
     background-color: rgba($darkBackground,0.3);
-    position: absolute;
+    position: fixed;
     top:0;
     bottom:0;
     right:0;
@@ -65,5 +65,10 @@
 
 
     }
+  }
+
+  @media screen and (max-width:$small){
+    padding-top:0;
+    padding-bottom:10rem;
   }
 }

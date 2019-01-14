@@ -9,6 +9,7 @@ import UserActions from '../../store/actions/user.actions';
 
 import history from '../../routing/history';
 import AuthActions from '../../store/actions/auth.actions';
+import SettingsLink from '../../ui/SettingsLink/component';
 
 class Register extends React.PureComponent<RegisterProps, RegisterState> {
   state = {
@@ -136,6 +137,7 @@ class Register extends React.PureComponent<RegisterProps, RegisterState> {
             Create Account
           </Button>
         </Form>
+        <SettingsLink />
       </div>
     );
   }

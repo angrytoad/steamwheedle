@@ -1,0 +1,8 @@
+@import "../../../styles/variables";
+@import "../../../styles/global";
+
+.auction{
+  @extend .view;
+
+  min-height: 100vh;
+}

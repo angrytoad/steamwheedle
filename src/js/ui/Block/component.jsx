@@ -10,7 +10,7 @@ class Block extends React.PureComponent<BlockProps> {
   render() {
     const { children } = this.props;
     return (
-      <div className={css.block}>
+      <div className={`${css.block} block animated fadeIn`}>
         { children }
       </div>
     );

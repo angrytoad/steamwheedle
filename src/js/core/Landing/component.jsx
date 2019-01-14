@@ -5,22 +5,20 @@ import SVGInline from 'react-svg-inline';
 import type { LandingProps, LandingState } from './container';
 import css from './styles.module.scss';
 
-import Gold from '../../../resources/images/ui/Gold.png';
+import Gold from '../../../resources/images/ui/Gold-small.png';
 import heart from '../../../resources/icons/heart.svg';
 import huzzah from '../../../resources/images/youtubers/huzzah.png';
 import history from '../../routing/history';
 
+import SettingsLink from '../../ui/SettingsLink/component';
+
 class Landing extends React.PureComponent<LandingProps, LandingState> {
-  state = {
-
-  };
-
-  componentDidMount = () => {
-
-  };
-
   handleGoToRegistration = () => {
     history.push('/register');
+  };
+
+  handleGoToPlay = () => {
+    history.push('/play');
   };
 
   render() {
@@ -45,9 +43,17 @@ class Landing extends React.PureComponent<LandingProps, LandingState> {
             className="my-4"
             color="yellow"
             size="big"
-            onClick={this.handleGoToRegistration}
+            onClick={this.handleGoToPlay}
           >
             Play
+          </Button>
+          <Button
+            className="my-4"
+            color="blue"
+            size="big"
+            onClick={this.handleGoToRegistration}
+          >
+            Register
           </Button>
           <div className={`my-4 ${css.madeWithLove}`}>
             <h2>
@@ -62,6 +68,7 @@ class Landing extends React.PureComponent<LandingProps, LandingState> {
             </ul>
           </div>
         </div>
+        <SettingsLink />
       </div>
     );
   }

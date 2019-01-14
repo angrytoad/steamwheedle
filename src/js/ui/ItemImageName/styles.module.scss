@@ -1,0 +1,36 @@
+@import "../../../styles/variables";
+.itemImageName{
+  display:grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  grid-gap:1rem;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  font-size:18px;
+
+  > div{
+    display:grid;
+    align-items: center;
+    text-align: left;
+
+    span{
+      line-height: 18px;
+
+      &.category{
+        text-transform: uppercase;
+        font-size:12px;
+        line-height: 12px;
+      }
+
+      &.description{
+        opacity: 0.3;
+        margin-top:1rem;
+      }
+    }
+  }
+
+  @media screen and (max-width:$verySmall) {
+    grid-gap:5px;
+    font-size:14px;
+  }
+}

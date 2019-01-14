@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 const resolve = require('resolve');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -18,6 +19,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
@@ -174,21 +176,7 @@ module.exports = {
         cache: true,
         sourceMap: shouldUseSourceMap,
       }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          parser: safePostCssParser,
-          map: shouldUseSourceMap
-            ? {
-              // `inline: false` forces the sourcemap to be output into a
-              // separate file
-              inline: false,
-              // `annotation: true` appends the sourceMappingURL to the end of
-              // the css file, helping the browser find the sourcemap
-              annotation: true,
-            }
-            : false,
-        },
-      }),
+      new UglifyJsPlugin(),
     ],
     // Automatically split vendor and commons
     // https://twitter.com/wSokra/status/969633336732905474
@@ -252,7 +240,7 @@ module.exports = {
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
-        test: /\.(js|mjs|jsx)$/,
+        test: /\.(mjs|jsx)$/,
         enforce: 'pre',
         use: [
           {
@@ -528,6 +516,15 @@ module.exports = {
         silent: true,
         formatter: typescriptFormatter,
       }),
+    new WebpackBar({
+      fancy: true,
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        API: JSON.stringify('https://api.steamwheedle.com/api'),
+        API_OAUTH: JSON.stringify('https://api.steamwheedle.com'),
+      },
+    }),
   ].filter(Boolean),
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

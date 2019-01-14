@@ -1,0 +1,96 @@
+@import "../../../styles/variables";
+
+.playMenu{
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  bottom:$xpbarHeight;
+  width:auto;
+  margin:auto;
+  border:2px ridge rgba(white,0.3);
+  border-bottom:none;
+  border-left: none;
+  background:$darkBackground;
+  border-radius:0 10px 0 0;
+  padding:1rem;
+  display:grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+
+  .menuItem{
+    text-align: center;
+    margin:0.5rem 0;
+    border-radius:10px;
+
+    &.double{
+      img{
+        width:32px;
+      }
+    }
+
+
+    a:hover{
+      cursor:pointer;
+
+      &:not(.active){
+        opacity:0.7;
+      }
+    }
+
+    &.active{
+      background:$gold;
+
+      img{
+        opacity:0.5;
+      }
+    }
+
+    &.notActive{
+
+    }
+  }
+
+  .menuItem:first-child{
+    margin-top:0;
+  }
+
+  .menuItem:nth-child(3){
+    margin-bottom:0;
+  }
+
+  .balance{
+    margin-left:1rem;
+    border-left:3px ridge $blockBorder;
+    padding-left:1rem;
+    display:grid;
+    align-items: center;
+
+    p{
+      margin:0;
+      font-weight: bold;
+    }
+  }
+
+  @media screen and (max-width: $medium) {
+    border:none;
+    border-top:3px ridge $blockBorder;
+    justify-content: center;
+    background:rgba($darkBackground,0.7);
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+
+    .menuItem{
+      margin:0 0.5rem;
+    }
+  }
+
+  @media screen and (max-width: $small) {
+    bottom: calc(#{$xpbarHeight} + #{$timerHeight});
+  }
+
+  @media screen and (max-width: $verySmall) {
+    right:0;
+    height: $playMenuMobileHeight;
+  }
+}

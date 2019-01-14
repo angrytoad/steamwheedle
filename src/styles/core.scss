@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500|Roboto:400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500|Roboto:200,400,700');
 
 @import "./variables";
 
@@ -10,3 +10,6 @@
 
 // Layout
 @import "global";
+
+// Load Awesome
+@import "loadAwesome/timer.min.css";

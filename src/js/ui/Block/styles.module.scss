@@ -2,7 +2,13 @@
 
 .block{
   background: rgba($blockBackground, 0.8);
-  border: 1px solid $blockBorder;
+  border: 3px groove $blockBorder;
   border-radius:4px;
   padding:1rem;
+
+  @media screen and (max-width:$verySmall){
+    padding:5px;
+    border-radius: 0;
+    border:none;
+  }
 }

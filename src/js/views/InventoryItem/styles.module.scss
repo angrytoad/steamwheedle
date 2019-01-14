@@ -1,0 +1,141 @@
+@import "../../../styles/variables";
+
+.inventoryItem{
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-gap:1rem;
+
+  .currentPrice{
+    text-align: center;
+  }
+
+  .itemInfo{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:1rem;
+    min-height: 400px;
+
+    .itemName{
+      position: relative;
+      display:grid;
+      align-content: center;
+      padding:4rem;
+      justify-items: center;
+      text-align: center;
+      border:1px solid $blockBorder;
+
+      p{
+        text-transform: uppercase;
+
+        :global(.riskBlock){
+          margin-left:5px;
+        }
+      };
+
+      .itemBackground{
+        background-position: center;
+        //background-size:200px;
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        opacity:0.1;
+        z-index: -1;
+      }
+    }
+
+    .itemDescription{
+      position: relative;
+      display:grid;
+      align-content: center;
+      padding:4rem;
+      justify-items: center;
+      text-align: center;
+
+      h3{
+        font-style: italic;
+      }
+    }
+
+
+    @media screen and (max-width: $large) {
+      min-height: 300px;
+
+      .itemName, .itemDescription{
+        padding:2rem;
+      }
+    }
+
+    @media screen and (max-width: $medium) {
+      min-height: 200px;
+    }
+
+    @media screen and (max-width: $small) {
+      min-height: 0;
+      grid-template-columns: 1fr;
+      grid-gap:0;
+
+      .itemName{
+        border:none;
+        border-bottom:5px solid $blockBorder;
+
+        p{
+          margin:0;
+        }
+      }
+
+      .itemDescription{
+        border-bottom: 5px solid $blockBorder;
+      }
+
+      .itemName, .itemDescription{
+        padding:2rem;
+      }
+
+    }
+
+  }
+
+  .purchaseGroupRender{
+    @media screen and (max-width:$small){
+      thead{
+        tr{
+          th:first-child{
+            display:none;
+          }
+        }
+      }
+      tbody{
+        tr{
+          td:first-child{
+            display:none;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width:$verySmall){
+      thead{
+        tr{
+          th:nth-child(2),th:nth-child(4){
+            display:none;
+          }
+        }
+      }
+      tbody{
+        tr{
+          td:nth-child(2),td:nth-child(4){
+            display:none;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $small) {
+    .topper{
+      padding: 0 1rem;
+    }
+  }
+}

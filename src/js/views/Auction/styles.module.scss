@@ -1,0 +1,32 @@
+@import "../../../styles/variables";
+
+.auction{
+  display:grid;
+  grid-template-areas:
+          "topper topper"
+          "auctionCategories auctionItems";
+  grid-template-columns: 175px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-gap:1rem;
+
+  .topper{
+    grid-area: topper;
+    text-align: left;
+    margin-bottom:2rem;
+  }
+
+
+  @media screen and (max-width:$medium){
+    grid-template-columns: 1fr;
+    grid-template-areas:
+            "topper"
+            "auctionCategories"
+            "auctionItems";
+  }
+
+  @media screen and (max-width: $small) {
+    .topper{
+      padding: 0 1rem;
+    }
+  }
+}

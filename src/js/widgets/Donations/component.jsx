@@ -14,7 +14,7 @@ class Donations extends React.PureComponent {
   render() {
     return (
       <div className={css.donations}>
-        <h2>Donations</h2>
+        <h2>Settings</h2>
       </div>
     );
   }

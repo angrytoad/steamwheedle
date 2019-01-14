@@ -1,0 +1,42 @@
+@import "../../../styles/variables";
+
+.auctionItem{
+  min-height: 75px;
+  border-bottom:1px solid $blockBorder;
+  align-items: center;
+  text-align: left;
+
+  &.disabled{
+    opacity: 0.3;
+  }
+
+  &:hover{
+    background:$mediumBackground;
+  }
+
+  td{
+    padding:5px 1rem;
+
+    a{
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+
+  .name{
+    max-width: 300px;
+  }
+
+  .risk{
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width:$verySmall) {
+    padding: 5px 5px;
+
+    td{
+      padding:5px 5px;
+    }
+  }
+}

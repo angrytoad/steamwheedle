@@ -396,8 +396,8 @@ module.exports = {
       }),
     new webpack.DefinePlugin({
       'process.env': {
-        API: JSON.stringify('http://192.168.99.100:8080/api'),
-        API_OAUTH: JSON.stringify('http://192.168.99.100:8080'),
+        API: JSON.stringify('https://api.steamwheedle.com/api'),
+        API_OAUTH: JSON.stringify('https://api.steamwheedle.com/api'),
       },
     }),
   ].filter(Boolean),

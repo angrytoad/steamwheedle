@@ -1,0 +1,22 @@
+@import "../../../styles/variables";
+
+.inventoryList{
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  .inventoryListItems{
+    display:grid;
+    align-items: center;
+    position: relative;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap:1rem;
+
+    @media screen and (max-width:$large){
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width:$small){
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.settings {
+  @include fs-grid;
+
+  .wrapper {
+    @include wrapper;
+
+    .settingsRender{
+      display:grid;
+      grid-template-columns: 1fr;
+      grid-gap:1rem;
+      margin-top:2rem;
+
+      .setting{
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        align-items: center;
+
+        p{
+          margin:0;
+        }
+
+        :global(.SVGInline){
+          width:32px;
+          display:inline-block;
+          margin:0 1rem;
+
+          svg{
+            opacity:0.6;
+          }
+
+          &:hover{
+            cursor:pointer;
+
+           svg{
+             opacity:1;
+           }
+          }
+
+
+        }
+
+        .active{
+          svg{
+            fill:$gold;
+            opacity:1;
+          }
+        }
+      }
+    }
+  }
+}

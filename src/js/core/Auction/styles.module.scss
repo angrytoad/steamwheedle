@@ -4,5 +4,5 @@
 .auction{
   @extend .view;
 
-  border: 1px solid transparent;
+  min-height: 100vh;
 }
